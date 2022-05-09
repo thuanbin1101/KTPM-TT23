@@ -19,7 +19,7 @@ class AdminController extends Controller
                 'email' => 'required|email'
             ],
             [
-                'required' => 'Chua nhap email  '
+                'required' => 'Chưa nhập email'
             ]
         );
         $email = $request->input('email');

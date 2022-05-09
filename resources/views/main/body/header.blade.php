@@ -1,11 +1,12 @@
 @php
-$categories = DB::table('categories')
-    ->orderBy('id', 'ASC')
-    ->get();
-$headlines = DB::table('posts')
-    ->where('posts.headline', 1)
-    ->limit(3)
-    ->get();
+    $categories = DB::table('categories')
+        ->orderBy('id', 'ASC')
+        ->where('deleted_at', NULL)
+        ->get();
+    $headlines = DB::table('posts')
+        ->where('posts.headline', 1)
+        ->limit(3)
+        ->get();
 @endphp
 
 <!-- header-start -->
@@ -24,7 +25,7 @@ $headlines = DB::table('posts')
                             <!-- Brand and toggle get grouped for better mobile display -->
                             <div class="navbar-header">
                                 <button type="button" data-target="#navbarCollapse" data-toggle="collapse"
-                                    class="navbar-toggle">
+                                        class="navbar-toggle">
                                     <span class="sr-only">Toggle navigation</span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
@@ -63,7 +64,7 @@ $headlines = DB::table('posts')
                                                 @endforeach
                                             </ul>
                                         </li>
-                                    @endforeach
+                                @endforeach
 
                             </div>
                         </nav>
@@ -80,22 +81,23 @@ $headlines = DB::table('posts')
                         @else
                             <li class="version"><a href="{{ route('lang.vn') }}"><B>Vietnamese</B></a></li>
                             &nbsp;&nbsp;&nbsp;
-                        @endif
+                    @endif
 
-                        <!-- search-start -->
+                    <!-- search-start -->
                         <li>
                             <div class="search-large-divice">
-                                <div class="search-icon-holder"> <a href="#" class="search-icon" data-toggle="modal"
-                                        data-target=".bd-example-modal-lg"><i class="fa fa-search"
+                                <div class="search-icon-holder"><a href="#" class="search-icon" data-toggle="modal"
+                                                                   data-target=".bd-example-modal-lg"><i
+                                            class="fa fa-search"
                                             aria-hidden="true"></i></a>
                                     <div class="modal fade bd-example-modal-lg" action="" tabindex="-1" role="dialog"
-                                        aria-hidden="true" style="display: none;">
+                                         aria-hidden="true" style="display: none;">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close"> <i class="fa fa-times-circle"
-                                                            aria-hidden="true"></i>
+                                                            aria-label="Close"><i class="fa fa-times-circle"
+                                                                                  aria-hidden="true"></i>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
@@ -105,11 +107,12 @@ $headlines = DB::table('posts')
                                                                 <form>
                                                                     <div class="input-group">
                                                                         <input class="search form-control input-lg"
-                                                                            placeholder="search" value="Type Here.."
-                                                                            type="text">
+                                                                               placeholder="search" value="Type Here.."
+                                                                               type="text">
                                                                         <span class="input-group-btn">
                                                                             <button class="btn btn-lg"
-                                                                                type="button"> <i class="fa fa-search"
+                                                                                    type="button"> <i
+                                                                                    class="fa fa-search"
                                                                                     aria-hidden="true"></i>
                                                                             </button>
                                                                         </span>
@@ -129,7 +132,7 @@ $headlines = DB::table('posts')
                         <li>
                             <div class="dropdown">
                                 <button class="dropbtn-02"><i class="fa fa-thumbs-up"
-                                        aria-hidden="true"></i></button>
+                                                              aria-hidden="true"></i></button>
                                 <div class="dropdown-content">
                                     <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
                                     <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
@@ -150,7 +153,7 @@ $headlines = DB::table('posts')
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                <div class="top-add"><img src="{{ asset('assets/img/top-ad.jpg') }}" alt="" /></div>
+                <div class="top-add"><img src="{{ asset('assets/img/top-ad.jpg') }}" alt=""/></div>
             </div>
         </div>
     </div>
@@ -163,9 +166,9 @@ $headlines = DB::table('posts')
             <div class="col-md-12 col-sm-12">
                 <div class="date">
                     <ul>
-                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> Dhaka </li>
-                        <li><i class="fa fa-calendar" aria-hidden="true"></i> Monday, 19th October 2020 </li>
-                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> Update 5 min ago </li>
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> Dhaka</li>
+                        <li><i class="fa fa-calendar" aria-hidden="true"></i> Monday, 19th October 2020</li>
+                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> Update 5 min ago</li>
                     </ul>
 
                 </div>
