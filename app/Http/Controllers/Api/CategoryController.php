@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Category;
+use DB;
 
 class CategoryController extends Controller
 {
@@ -15,6 +17,8 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        return Category::all();
+
     }
 
     /**
@@ -26,6 +30,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        return Category::create();
     }
 
     /**
@@ -34,9 +39,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Category $category)
     {
         //
+        return $category;
     }
 
     /**
@@ -46,9 +52,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
         //
+        $category->update($request->all());
+        return $category;
     }
 
     /**
@@ -57,8 +65,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
         //
+        $category->delete();
+        return $category;
     }
 }
