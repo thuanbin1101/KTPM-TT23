@@ -30,11 +30,19 @@
                             @csrf
                             <div class="form-group">
                                 <label>Email *</label>
-                                <input type="text" id="email" name="email" class="form-control p_input">
+                                <label for="email"></label><input type="text" id="email" name="email"
+                                                                  class="form-control p_input">
+                                @error('email')
+                                <span class="text-danger">{{$message}}</span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>Password *</label>
-                                <input type="password" id="password" name="password" class="form-control p_input">
+                                <label for="password"></label><input type="password" id="password" name="password"
+                                                                     class="form-control p_input">
+                                @error('password')
+                                <span class="text-danger">{{$message}}</span>
+                                @enderror
                             </div>
                             <div class="form-group d-flex align-items-center justify-content-between">
                                 <div class="form-check">

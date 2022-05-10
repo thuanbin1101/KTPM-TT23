@@ -25,6 +25,12 @@ class CreateNewUser implements CreatesNewUsers
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
+        ],[
+            'name.required' => 'Bạn chưa điền tên ',
+            'email.required' => 'Bạn chưa điền email',
+            'email.unique' => 'Email này đã tồn tại trong dữ liệu, vui lòng kiểm tra lại',
+            'password.required' => 'Bạn chưa điền mật khẩu',
+            'password.confirmed'=> 'Mật khẩu không khớp, vui lòng nhập lại'
         ])->validate();
 
         return User::create([
