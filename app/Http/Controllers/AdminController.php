@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+
 class AdminController extends Controller
 {
     public function logout()
@@ -12,25 +13,17 @@ class AdminController extends Controller
         Auth::logout();
         return redirect()->route('login')->with('success', 'User logout');
     }
-    public function checkEmail(Request $request)
+
+    public function checkEmail(Request $request): bool
     {
-        $request->validate(
-            [
-                'email' => 'required|email'
-            ],
-            [
-                'required' => 'Chưa nhập email'
-            ]
-        );
-        $email = $request->input('email');
-        $row = DB::table('users')->where('email', $email)->first();
-        if ($row) {
-            echo "1";
-        } else {
-            echo "0";
+        if (DB::table('users')->where('email', $request->input('email'))->first()) {
+            return true;
         }
+        return false;
     }
-    public function testImage(Request $request){
+
+    public function testImage(Request $request)
+    {
         dd(AdminController::class);
     }
 }

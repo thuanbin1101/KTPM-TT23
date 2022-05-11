@@ -122,7 +122,7 @@
                     email: e
                 },
                 success: function (data) {
-                    if (data == "1") {
+                    if (data) {
                         $('#errorEmail').html(
                             "Đã tồn tại email này trong hệ thống, vui lòng sử dụng email khác"
                         )

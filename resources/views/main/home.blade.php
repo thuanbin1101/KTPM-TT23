@@ -454,6 +454,7 @@
                                     </select>
                                 </div>
                                 <div class="col-lg-4 col-sm-4">
+
                                     <select name="subdistrict_id" id="subdistrict_id" class="form-control">
                                         <option value="">--- SELECT SUBDISTRICT ---</option>
                                     </select>

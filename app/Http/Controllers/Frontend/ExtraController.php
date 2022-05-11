@@ -47,7 +47,10 @@ class ExtraController extends Controller
     public function getSubDistrict($district_id)
     {
         $sub = DB::table('subdistricts')->where('district_id', $district_id)->get();
-        return response()->json($sub);
+        if ($sub){
+            return response()->json(['code'=> 200, 'message'=>'Success',$sub],200);
+        }
+
     }
     public function SearchDistrict(Request $request)
     {
