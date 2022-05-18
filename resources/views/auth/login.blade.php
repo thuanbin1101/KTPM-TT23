@@ -4,6 +4,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>Corona Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('backend/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
@@ -26,7 +28,7 @@
                 <div class="card col-lg-4 mx-auto">
                     <div class="card-body px-5 py-5">
                         <h3 class="card-title text-left mb-3">Login</h3>
-                        <form method="POST" action="{{ route('login') }}">
+                        <form id="formLogin" method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="form-group">
                                 <label>Email *</label>
@@ -52,7 +54,8 @@
                                 <a href="{{ route('password.request') }}" class="forgot-pass">Forgot password</a>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary btn-block enter-btn">Login</button>
+                                <button type="submit" id="btnLogin" class="btn btn-primary btn-block enter-btn">Login
+                                </button>
                             </div>
                             <div class="d-flex">
                                 <button class="btn btn-facebook mr-2 col">
@@ -85,6 +88,40 @@
 <script src="{{asset('backend/assets/js/misc.js')}}"></script>
 <script src="{{asset('backend/assets/js/settings.js')}}"></script>
 <script src="{{asset('backend/assets/js/todolist.js')}}"></script>
+<script src="{{asset('backend/admins/login/User.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+    var laravelToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    let btnLogin = document.getElementById("btnLogin");
+    $("#formLogin").submit(function (e) {
+        e.preventDefault();
+    });
+    if(new UserJWT().loggedIn()){
+        window.location = "{{route('dashboard')}}";
+    }
+    btnLogin.onclick = function () {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let form = {
+            email: email,
+            password: password
+        }
+        axios.post('/api/auth/login', form)
+            .then(function (response) {
+                // handle success
+                console.log(response.data);
+                new UserJWT().responseAfterLogin(response)
+                window.location = "{{route('dashboard')}}";
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error.response.data);
+            });
+    }
+
+
+</script>
 <!-- endinject -->
 </body>
 </html>

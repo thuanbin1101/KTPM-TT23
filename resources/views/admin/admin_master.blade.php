@@ -109,6 +109,19 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     @yield('js')
+    <script src="{{asset('backend/admins/login/User.js')}}"></script>
+    <script>
+        if(!new UserJWT().loggedIn()){
+            window.location = "{{route('login')}}";
+        }
+        let btnLogout = document.getElementById('btnLogout');
+        btnLogout.onclick = function(e){
+            e.preventDefault();
+            localStorage.removeItem('token');
+            window.location = "{{route('login')}}";
+
+        }
+    </script>
 
 </body>
 

@@ -16,8 +16,8 @@
                     </div>
                     <div class="profile-name">
                         <h5 class="mb-0 font-weight-normal">
-                            {{ isset(Auth::user()->name) ? Auth::user()->name : 'Test' }}</h5>
-                        <span>{{ isset(Auth::user()->email) ? Auth::user()->email : 'Test' }}</span>
+                            {{ Auth::user()->name ?? 'Test' }}</h5>
+                        <span>{{ Auth::user()->email ?? 'Test' }}</span>
                     </div>
                 </div>
                 <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
