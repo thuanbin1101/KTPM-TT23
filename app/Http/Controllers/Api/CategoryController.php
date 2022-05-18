@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -14,6 +15,11 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
 
     public function index()
     {
@@ -79,10 +85,9 @@ class CategoryController extends Controller
     {
         //
         $category->update($request->all());
-        $getCategoryUpdated = Category::find($category);
         return response()->json([
             'code' => 200,
-            'data' => $getCategoryUpdated,
+            'data' => $category,
             'message' => 'Updated category successfully'
         ], 200);
     }

@@ -1,41 +1,41 @@
 @extends('main.home_master')
 @section('content')
     @php
-    $firstSectionBig = DB::table('posts')
-        ->where('first_section_thumbnail', 1)
-        ->orderBy('id', 'DESC')
-        ->first();
-    $firstSection = DB::table('posts')
-        ->where('first_section', 1)
-        ->orderBy('id', 'DESC')
-        ->limit(8)
-        ->get();
-    $firstCategory = DB::table('categories')->first();
-    $firstCategoryBig = DB::table('posts')
-        ->where('category_id', $firstCategory->id)
-        ->where('bigthumbnail', 1)
-        ->first();
-    $firstCategorySmall = DB::table('posts')
-        ->where('category_id', $firstCategory->id)
-        ->where('bigthumbnail', null)
-        ->get();
-    $secondCategory = DB::table('categories')
-        ->skip(1)
-        ->first();
-    $secondCategoryBig = DB::table('posts')
-        ->where('category_id', $secondCategory->id)
-        ->where('bigthumbnail', 1)
-        ->first();
-    $secondCategorySmall = DB::table('posts')
-        ->where('category_id', $secondCategory->id)
-        ->where('bigthumbnail', null)
-        ->get();
-    $photoBig = DB::table('photos')
-        ->where('type', 1)
-        ->first();
-    $photoSmall = DB::table('photos')
-        ->where('type', 0)
-        ->get();
+        $firstSectionBig = DB::table('posts')
+            ->where('first_section_thumbnail', 1)
+            ->orderBy('id', 'DESC')
+            ->first();
+        $firstSection = DB::table('posts')
+            ->where('first_section', 1)
+            ->orderBy('id', 'DESC')
+            ->limit(8)
+            ->get();
+        $firstCategory = DB::table('categories')->first();
+        $firstCategoryBig = DB::table('posts')
+            ->where('category_id', $firstCategory->id)
+            ->where('bigthumbnail', 1)
+            ->first();
+        $firstCategorySmall = DB::table('posts')
+            ->where('category_id', $firstCategory->id)
+            ->where('bigthumbnail', null)
+            ->get();
+        $secondCategory = DB::table('categories')
+            ->skip(1)
+            ->first();
+        $secondCategoryBig = DB::table('posts')
+            ->where('category_id', $secondCategory->id)
+            ->where('bigthumbnail', 1)
+            ->first();
+        $secondCategorySmall = DB::table('posts')
+            ->where('category_id', $secondCategory->id)
+            ->where('bigthumbnail', null)
+            ->get();
+        $photoBig = DB::table('photos')
+            ->where('type', 1)
+            ->first();
+        $photoSmall = DB::table('photos')
+            ->where('type', 0)
+            ->get();
     @endphp
     <!-- 1st-news-section-start -->
     <section class="news-section">
@@ -47,7 +47,7 @@
                         <div class="col-md-10 col-sm-10">
                             <div class="lead-news">
                                 <div class="service-img"><a href="#"><img src="{{ asset($firstSectionBig->image) }}"
-                                            width="800px" alt="Notebook"></a></div>
+                                                                          width="800px" alt="Notebook"></a></div>
                                 <div class="content">
                                     <h4 class="lead-heading-01">
                                         @if (session()->get('lang') == 'eng')
@@ -67,7 +67,7 @@
                             <div class="col-md-3 col-sm-3">
                                 <div class="top-news">
                                     <a href="{{ route('single.post', $row->id) }}"><img src="{{ asset($row->image) }}"
-                                            alt="Notebook"></a>
+                                                                                        alt="Notebook"></a>
                                     <h4 class="heading-02">
                                         @if (session()->get('lang') == 'eng')
                                             <a href="{{ route('single.post', $row->id) }}">{{ $row->title_en }} </a>
@@ -84,7 +84,7 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
                             <div class="add"><img src="{{ asset('frontend/assets/img/top-ad.jpg') }}"
-                                    alt="" />
+                                                  alt=""/>
                             </div>
                         </div>
                     </div><!-- /.add-close -->
@@ -100,7 +100,7 @@
                                     <div class="col-md-6 col-sm-6">
                                         <div class="top-news">
                                             <a href="#"><img src="{{ asset($firstCategoryBig->image) }}"
-                                                    alt="Notebook"></a>
+                                                             alt="Notebook"></a>
                                             <h4 class="heading-02"><a
                                                     href="{{ route('single.post', $firstCategoryBig->id) }}">{{ $firstCategoryBig->title_en }}</a>
                                             </h4>
@@ -112,7 +112,7 @@
                                         @endforeach
                                         <div class="image-title">
                                             <a href="#"><img src="{{ $row->image }}" alt="Notebook"></a>
-                                            <h4 class="heading-03"><a href="#">{{ $row->title_en }}</a> </h4>
+                                            <h4 class="heading-03"><a href="#">{{ $row->title_en }}</a></h4>
                                         </div>
 
                                     </div>
@@ -128,7 +128,7 @@
                                     <div class="col-md-6 col-sm-6">
                                         <div class="top-news">
                                             <a href="#"><img src="{{ asset($secondCategoryBig->image) }}"
-                                                    alt="Notebook"></a>
+                                                             alt="Notebook"></a>
                                             <h4 class="heading-02"><a href="#">{{ $secondCategoryBig->title_en }}</a>
                                             </h4>
                                         </div>
@@ -137,7 +137,7 @@
                                         @foreach ($secondCategorySmall as $row)
                                             <div class="image-title">
                                                 <a href="#"><img src="{{ $row->image }}" alt="Notebook"></a>
-                                                <h4 class="heading-03"><a href="#">{{ $row->title_en }}</a> </h4>
+                                                <h4 class="heading-03"><a href="#">{{ $row->title_en }}</a></h4>
                                             </div>
                                         @endforeach
 
@@ -152,7 +152,7 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
                             <div class="sidebar-add"><img src="{{ asset('frontend/assets/img/add_01.jpg') }}"
-                                    alt="" />
+                                                          alt=""/>
                             </div>
                         </div>
                     </div><!-- /.add-close -->
@@ -161,14 +161,17 @@
                     <div class="cetagory-title-03">Live TV</div>
                     <div class="photo">
                         <div class="embed-responsive embed-responsive-16by9 embed-responsive-item"
-                            style="margin-bottom:5px;">
+                             style="margin-bottom:5px;">
 
-                            <iframe width="729" height="410" src="https://www.youtube.com/embed/a9tq0aS5Zu8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="729" height="410" src="https://www.youtube.com/embed/a9tq0aS5Zu8"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
                         </div>
                     </div><!-- /.youtube-live-close -->
 
                     <!-- facebook-page-start -->
-                    <div class="cetagory-title-03">Facebook </div>
+                    <div class="cetagory-title-03">Facebook</div>
                     <div class="fb-root">
                         facebook page here
                     </div><!-- /.facebook-page-close -->
@@ -177,7 +180,7 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
                             <div class="sidebar-add">
-                                <img src="frontend/assets/img/add_01.jpg" alt="" />
+                                <img src="frontend/assets/img/add_01.jpg" alt=""/>
                             </div>
                         </div>
                     </div><!-- /.add-close -->
@@ -200,24 +203,24 @@
                                 <div class="top-news">
                                     <a href="#"><img src="frontend/assets/img/news.jpg" alt="Notebook"></a>
                                     <h4 class="heading-02"><a href="#">Armenia, Azerbaijan accused of breaking
-                                            truce</a> </h4>
+                                            truce</a></h4>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="image-title">
                                     <a href="#"><img src="frontend/assets/img/news.jpg" alt="Notebook"></a>
                                     <h4 class="heading-03"><a href="#">Armenia, Azerbaijan accused of breaking
-                                            truce</a> </h4>
+                                            truce</a></h4>
                                 </div>
                                 <div class="image-title">
                                     <a href="#"><img src="frontend/assets/img/news.jpg" alt="Notebook"></a>
                                     <h4 class="heading-03"><a href="#">Armenia, Azerbaijan accused of breaking
-                                            truce</a> </h4>
+                                            truce</a></h4>
                                 </div>
                                 <div class="image-title">
                                     <a href="#"><img src="frontend/assets/img/news.jpg" alt="Notebook"></a>
                                     <h4 class="heading-03"><a href="#">Armenia, Azerbaijan accused of breaking
-                                            truce</a> </h4>
+                                            truce</a></h4>
                                 </div>
                             </div>
                         </div>
@@ -226,31 +229,32 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="bg-one">
                         <div class="cetagory-title-02"><a href="#">Politics <i class="fa fa-angle-right"
-                                    aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i>All
+                                                                               aria-hidden="true"></i> <span><i
+                                        class="fa fa-plus" aria-hidden="true"></i>All
                                     News </span></a></div>
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <div class="top-news">
                                     <a href="#"><img src="frontend/assets/img/news.jpg" alt="Notebook"></a>
                                     <h4 class="heading-02"><a href="#">BNP introduced culture of impunity:
-                                            Quader</a> </h4>
+                                            Quader</a></h4>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="image-title">
                                     <a href="#"><img src="frontend/assets/img/news.jpg" alt="Notebook"></a>
                                     <h4 class="heading-03"><a href="#">BNP introduced culture of impunity:
-                                            Quader</a> </h4>
+                                            Quader</a></h4>
                                 </div>
                                 <div class="image-title">
                                     <a href="#"><img src="frontend/assets/img/news.jpg" alt="Notebook"></a>
                                     <h4 class="heading-03"><a href="#">BNP introduced culture of impunity:
-                                            Quader</a> </h4>
+                                            Quader</a></h4>
                                 </div>
                                 <div class="image-title">
                                     <a href="#"><img src="frontend/assets/img/news.jpg" alt="Notebook"></a>
                                     <h4 class="heading-03"><a href="#">BNP introduced culture of impunity:
-                                            Quader</a> </h4>
+                                            Quader</a></h4>
                                 </div>
                             </div>
                         </div>
@@ -262,31 +266,32 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="bg-one">
                         <div class="cetagory-title-02"><a href="#">Biz-Econ<i class="fa fa-angle-right"
-                                    aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i> All
+                                                                              aria-hidden="true"></i> <span><i
+                                        class="fa fa-plus" aria-hidden="true"></i> All
                                     News </span></a></div>
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <div class="top-news">
                                     <a href="#"><img src="frontend/assets/img/news.jpg" alt="Notebook"></a>
                                     <h4 class="heading-02"><a href="#">Israel sends treaty delegation to Bahrain
-                                            with Trump aides</a> </h4>
+                                            with Trump aides</a></h4>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="image-title">
                                     <a href="#"><img src="frontend/assets/img/news.jpg" alt="Notebook"></a>
                                     <h4 class="heading-03"><a href="#">Israel sends treaty delegation to Bahrain
-                                            with Trump aides</a> </h4>
+                                            with Trump aides</a></h4>
                                 </div>
                                 <div class="image-title">
                                     <a href="#"><img src="frontend/assets/img/news.jpg" alt="Notebook"></a>
                                     <h4 class="heading-03"><a href="#">Israel sends treaty delegation to Bahrain
-                                            with Trump aides</a> </h4>
+                                            with Trump aides</a></h4>
                                 </div>
                                 <div class="image-title">
                                     <a href="#"><img src="frontend/assets/img/news.jpg" alt="Notebook"></a>
                                     <h4 class="heading-03"><a href="#">Israel sends treaty delegation to Bahrain
-                                            with Trump aides</a> </h4>
+                                            with Trump aides</a></h4>
                                 </div>
                             </div>
                         </div>
@@ -295,7 +300,8 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="bg-one">
                         <div class="cetagory-title-02"><a href="#">Education <i class="fa fa-angle-right"
-                                    aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i> All
+                                                                                aria-hidden="true"></i> <span><i
+                                        class="fa fa-plus" aria-hidden="true"></i> All
                                     News </span></a></div>
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
@@ -329,10 +335,10 @@
             <!-- add-start -->
             <div class="row">
                 <div class="col-md-6 col-sm-6">
-                    <div class="add"><img src="frontend/assets/img/top-ad.jpg" alt="" /></div>
+                    <div class="add"><img src="frontend/assets/img/top-ad.jpg" alt=""/></div>
                 </div>
                 <div class="col-md-6 col-sm-6">
-                    <div class="add"><img src="frontend/assets/img/top-ad.jpg" alt="" /></div>
+                    <div class="add"><img src="frontend/assets/img/top-ad.jpg" alt=""/></div>
                 </div>
             </div><!-- /.add-close -->
 
@@ -345,8 +351,9 @@
             <div class="row">
                 <div class="col-md-9 col-sm-9">
                     <div class="cetagory-title-02"><a href="#">Feature <i class="fa fa-angle-right"
-                                aria-hidden="true"></i> all district news tab here <span><i class="fa fa-plus"
-                                    aria-hidden="true"></i> All News </span></a></div>
+                                                                          aria-hidden="true"></i> all district news tab
+                            here <span><i class="fa fa-plus"
+                                          aria-hidden="true"></i> All News </span></a></div>
 
                     <div class="row">
                         <div class="col-md-4 col-sm-4">
@@ -392,18 +399,19 @@
                         </div>
                     </div>
                     <!-- ******* -->
-                    <br />
+                    <br/>
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
                             <div class="cetagory-title-02"><a href="#">Sci-Tech<i class="fa fa-angle-right"
-                                        aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i>
+                                                                                  aria-hidden="true"></i> <span><i
+                                            class="fa fa-plus" aria-hidden="true"></i>
                                         সব খবর </span></a></div>
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <div class="bg-gray">
                                 <div class="top-news">
                                     <a href="#"><img src="{{ asset('frontend/assets/img/news.jpg') }}"
-                                            alt="Notebook"></a>
+                                                     alt="Notebook"></a>
                                     <h4 class="heading-02"><a href="#">Facebook Messenger gets shiny new logo </a>
                                     </h4>
                                 </div>
@@ -431,7 +439,8 @@
                                 <a href="#">Facebook Messenger gets shiny new logo </a>
                             </div>
                         </div>
-                    </div><br><br>
+                    </div>
+                    <br><br>
 
                     <div class="row">
                         @php
@@ -470,7 +479,7 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
                             <div class="sidebar-add">
-                                <img src="{{ asset('frontend/assets/img/top-ad.jpg') }}" alt="" />
+                                <img src="{{ asset('frontend/assets/img/top-ad.jpg') }}" alt=""/>
                             </div>
                         </div>
                     </div><!-- /.add-close -->
@@ -482,11 +491,12 @@
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs nav-justified" role="tablist">
                             <li role="presentation" class="active"><a href="#tab21" aria-controls="tab21"
-                                    role="tab" data-toggle="tab" aria-expanded="false">Latest</a></li>
+                                                                      role="tab" data-toggle="tab"
+                                                                      aria-expanded="false">Latest</a></li>
                             <li role="presentation"><a href="#tab22" aria-controls="tab22" role="tab" data-toggle="tab"
-                                    aria-expanded="true">Popular</a></li>
+                                                       aria-expanded="true">Popular</a></li>
                             <li role="presentation"><a href="#tab23" aria-controls="tab23" role="tab" data-toggle="tab"
-                                    aria-expanded="true">Popular1</a></li>
+                                                       aria-expanded="true">Popular1</a></li>
                         </ul>
 
                         <!-- Tab panes -->
@@ -495,31 +505,31 @@
                                 <div class="news-titletab">
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -527,31 +537,31 @@
                                 <div class="news-titletab">
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -559,41 +569,41 @@
                                 <div class="news-titletab">
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                     <div class="news-title-02">
                                         <h4 class="heading-03"><a href="#">Both education and life must be
-                                                saved</a> </h4>
+                                                saved</a></h4>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Namaj Times -->
-                    <div class="cetagory-title-03">Prayer Time </div>
+                    <div class="cetagory-title-03">Prayer Time</div>
                     Prayer Times count option here
                     <!-- Namaj Times -->
-                    <div class="cetagory-title-03">Old News </div>
+                    <div class="cetagory-title-03">Old News</div>
                     <form action="" method="post">
                         <div class="old-news-date">
                             <input type="text" name="from" placeholder="From Date" required="">
@@ -609,35 +619,35 @@
                     <div class="">
                         <div class="news-title-02">
                             <h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i>
-                                    Both education and life must be saved </a> </h4>
+                                    Both education and life must be saved </a></h4>
                         </div>
                         <div class="news-title-02">
                             <h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i>
-                                    Both education and life must be saved</a> </h4>
+                                    Both education and life must be saved</a></h4>
                         </div>
                         <div class="news-title-02">
                             <h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i>
-                                    Both education and life must be saved </a> </h4>
+                                    Both education and life must be saved </a></h4>
                         </div>
                         <div class="news-title-02">
                             <h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i>
-                                    Both education and life must be saved </a> </h4>
+                                    Both education and life must be saved </a></h4>
                         </div>
                         <div class="news-title-02">
                             <h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i>
-                                    Both education and life must be saved </a> </h4>
+                                    Both education and life must be saved </a></h4>
                         </div>
                         <div class="news-title-02">
                             <h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i>
-                                    Both education and life must be saved </a> </h4>
+                                    Both education and life must be saved </a></h4>
                         </div>
                         <div class="news-title-02">
                             <h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i>
-                                    Both education and life must be saved </a> </h4>
+                                    Both education and life must be saved </a></h4>
                         </div>
                         <div class="news-title-02">
                             <h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i>
-                                    Both education and life must be saved </a> </h4>
+                                    Both education and life must be saved </a></h4>
                         </div>
                     </div>
 
@@ -659,7 +669,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-8 col-sm-7">
-                    <div class="gallery_cetagory-title"> Photo Gallery </div>
+                    <div class="gallery_cetagory-title"> Photo Gallery</div>
 
                     <div class="row">
                         <div class="col-md-8 col-sm-8">
@@ -727,14 +737,17 @@
 
                 </div>
                 <div class="col-md-4 col-sm-5">
-                    <div class="gallery_cetagory-title"> photo Gallery </div>
+                    <div class="gallery_cetagory-title"> photo Gallery</div>
 
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
                             <div class="video_screen">
                                 <div class="myVideos" style="width:100%">
                                     <div class="embed-responsive embed-responsive-16by9 embed-responsive-item">
-                                        <iframe width="853" height="480" src="https://www.youtube.com/embed/5nOKORTZOeg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <iframe width="853" height="480" src="https://www.youtube.com/embed/SVhHhtG4DPM"
+                                                title="YouTube video player" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen></iframe>
                                     </div>
                                 </div>
                             </div>
@@ -820,19 +833,19 @@
                         }
                     </script>
                     <script type="text/javascript">
-                        $(document).ready(function() {
-                            $('select[name="district_id"]').on('change', function() {
+                        $(document).ready(function () {
+                            $('select[name="district_id"]').on('change', function () {
                                 var district_id = $(this).val();
                                 if (district_id) {
                                     $.ajax({
                                         url: "{{ url('/get/subdistrict/frontend') }}/" + district_id,
                                         type: "GET",
                                         dataType: "json",
-                                        success: function(data) {
+                                        success: function (data) {
                                             $("#subdistrict_id").empty();
-                                            $.each(data, function(key, value) {
+                                            $.each(data, function (key, value) {
                                                 $("#subdistrict_id").append('<option value="' + value
-                                                    .id +
+                                                        .id +
                                                     '">' + value.subdistrict_en + '</option>');
                                             });
                                         },

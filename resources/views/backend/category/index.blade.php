@@ -42,12 +42,12 @@
                                             style="display: inline">
                                             @csrf
                                             @method('DELETE')
-                                            @if (auth()->user()->can('delete category'))
+{{--                                            @if (auth()->user()->can('delete category'))--}}
                                                 <button data-url="{{ route('destroy.category', $category->id) }}"
                                                     class="btn btn-danger btn--delete">
                                                     Delete
                                                 </button>
-                                            @endif
+{{--                                            @endif--}}
 
                                     </form>
                                 </td>

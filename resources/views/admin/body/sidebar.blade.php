@@ -69,7 +69,7 @@
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
-        @role('Content')
+{{--        @role('Content')--}}
         <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false"
                aria-controls="ui-basic">
@@ -89,7 +89,7 @@
                 </ul>
             </div>
         </li>
-        @endrole
+{{--        @endrole--}}
 
 
         <li class="nav-item menu-items">

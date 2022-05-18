@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('permission:add category', ['only' => ['create']]);
-        $this->middleware('permission:publish category', ['only' => ['index']]);
-        $this->middleware('permission:edit category', ['only' => ['edit']]);
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('permission:add category', ['only' => ['create']]);
+//        $this->middleware('permission:publish category', ['only' => ['index']]);
+//        $this->middleware('permission:edit category', ['only' => ['edit']]);
+//    }
 
     /**
      * Display a listing of the resource.
