@@ -16,7 +16,14 @@
                     </div>
                     <div class="profile-name">
                         <h5 class="mb-0 font-weight-normal">
-                            {{ Auth::user()->name ?? 'Test' }}</h5>
+                            {{--                            {{ auth()->user()->name ?? 'Test' }}--}}
+                            @php
+                                if(isset($_POST['userName']))
+                                    {
+                                        echo $_POST['userName'];
+                                    }
+                            @endphp
+                        </h5>
                         <span>{{ Auth::user()->email ?? 'Test' }}</span>
                     </div>
                 </div>
@@ -69,7 +76,7 @@
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
-{{--        @role('Content')--}}
+        {{--        @role('Content')--}}
         <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false"
                aria-controls="ui-basic">
@@ -89,7 +96,7 @@
                 </ul>
             </div>
         </li>
-{{--        @endrole--}}
+        {{--        @endrole--}}
 
 
         <li class="nav-item menu-items">

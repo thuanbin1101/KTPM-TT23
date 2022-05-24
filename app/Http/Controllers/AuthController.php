@@ -25,10 +25,14 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login()
+    public function login(Request $request)
     {
-        $credentials = request(['email', 'password']);
+        $validateData = $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
 
+        $credentials = request(['email', 'password']);
         if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Invalid email or password'], 401);
         }
@@ -36,7 +40,7 @@ class AuthController extends Controller
         return $this->respondWithToken($token);
     }
 
-    public function register(Request $request)
+    public function register(Request $request): \Illuminate\Http\JsonResponse
     {
         try {
             $validator = validator()->make($request->all(), [
@@ -108,6 +112,8 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
+            'user_name' => auth()->user()->name,
+            'user_email' => auth()->user()->email,
             'expires_in' => auth()->factory()->getTTL() * 60
         ]);
     }

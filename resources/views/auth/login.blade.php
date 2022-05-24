@@ -89,17 +89,33 @@
 <script src="{{asset('backend/assets/js/settings.js')}}"></script>
 <script src="{{asset('backend/assets/js/todolist.js')}}"></script>
 <script src="{{asset('backend/admins/login/User.js')}}"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{{--<script type="module" src="{{asset('backend/admins/login/toast.js')}}"></script>--}}
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <script>
-    var laravelToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    const laravelToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     let btnLogin = document.getElementById("btnLogin");
+    var dataUser;
     $("#formLogin").submit(function (e) {
         e.preventDefault();
     });
-    if(new UserJWT().loggedIn()){
+    if (new UserJWT().loggedIn()) {
         window.location = "{{route('dashboard')}}";
     }
+
     btnLogin.onclick = function () {
         let email = document.getElementById("email").value;
         let password = document.getElementById("password").value;
@@ -110,14 +126,44 @@
         axios.post('/api/auth/login', form)
             .then(function (response) {
                 // handle success
-                console.log(response.data);
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Signed in successfully'
+                })
                 new UserJWT().responseAfterLogin(response)
+                let userName = new UserJWT().name();
+                let userEmail = new UserJWT().email();
+                dataUser = {
+                    userName: userName,
+                    userEmail: userEmail
+                }
+
                 window.location = "{{route('dashboard')}}";
             })
             .catch(function (error) {
                 // handle error
-                console.log(error.response.data);
-            });
+                const errors = error.response.data.errors;
+            }).catch(
+            Toast.fire({
+                icon: 'warning',
+                title: 'Invalid Email or Password'
+            })
+        );
+        // Truyen data username va email sang dashboard
+
+        setTimeout(function(){
+            axios.post('/dashboard', dataUser)
+                .then(function (response) {
+                    // handle success
+
+                })
+                .catch(function (error) {
+                    // handle error
+
+                });
+        },2000)
+
+
     }
 
 

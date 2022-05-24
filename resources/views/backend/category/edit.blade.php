@@ -9,8 +9,13 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group">
+                        <input type="text" id="idCategory" style="display: none" class="form-control" name="category_en" id="category_en"
+                               placeholder="Username" value="{{$category->id}}">
+                    </div>
+                    <div class="form-group">
+
                         <label for="exampleInputUsername1">Category English</label>
-                        <input type="text" class="form-control" name="category_en" id="exampleInputUsername1"
+                        <input type="text" class="form-control" name="category_en" id="category_en"
                                placeholder="Username" value="{{$category->category_en}}">
                         @error('category_en')
                         <span class="text-danger">{{$message}}</span>
@@ -19,13 +24,13 @@
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Category Vietnamese</label>
-                        <input type="text" class="form-control" name="category_vn" id="exampleInputEmail1"
+                        <input type="text" class="form-control" name="category_vn" id="category_vn"
                                placeholder="Email" value="{{$category->category_vn}}">
                         @error('category_vn')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary mr-2">Update</button>
+                    <button type="submit" id="btnUpdateCategory" class="btn btn-primary mr-2">Update</button>
                 </form>
             </div>
         </div>
