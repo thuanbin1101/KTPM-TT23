@@ -32,7 +32,7 @@
                         <tbody>
                             @foreach ($photos as $row)
                                 <tr>
-                                    <td> 1</td>
+                                    <td> {{ $phots->firstItem() + $key }}</td>
                                     <td> {{ $row->title }}</td>
                                     <td> <img src="{{ asset($row->photo) }}" width="50px" height="50px" alt=""></td>
                                     <td>
@@ -43,8 +43,8 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('edit.category', $row->id) }}" class="btn btn-info">Edit</a>
-                                        <form action="{{ route('destroy.category', $row->id) }}" method="POST"
+                                        <a href="{{ route('edit.photo', $row->id) }}" class="btn btn-info">Edit</a>
+                                        <form action="{{ route('destroy.photo', $row->id) }}" method="POST"
                                             style="display: inline">
                                             @csrf
                                             @method('DELETE')

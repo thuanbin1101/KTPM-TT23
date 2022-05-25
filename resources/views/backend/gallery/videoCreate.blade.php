@@ -3,10 +3,9 @@
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Form Photo Gallery</h4>
+                <h4 class="card-title">Form Video Gallery</h4>
                 <p class="card-description"> Basic form elements </p>
-                <form class="forms-sample" action="{{ route('store.photo') }}" method="post"
-                    enctype="multipart/form-data">
+                <form class="forms-sample" action="{{ route('store.video') }}" method="post">
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputName1">Title</label>
@@ -16,9 +15,9 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label>News Image upload</label>
-                        <input type="file" name="photo" class="form-control-file">
-                        @error('photo')
+                        <label>Embed Code</label>
+                        <input type="text" name="embed_code" class="form-control">
+                        @error('embed_code')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
@@ -26,8 +25,8 @@
                         <label for="">Type</label>
                         <select name="type" id="" class="form-control">
                             <option value="">--- SELECT CATEGORY ---</option>
-                            <option value="1">Big Photo</option>
-                            <option value="0 ">Small Photo</option>
+                            <option value="1">Big Video</option>
+                            <option value="0 ">Small Video</option>
                         </select>
                         @error('type')
                         <span class="text-danger">{{$message}}</span>

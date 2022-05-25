@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 09, 2022 at 09:01 AM
+-- Generation Time: May 25, 2022 at 01:57 PM
 -- Server version: 5.7.33
 -- PHP Version: 8.0.10
 
@@ -48,14 +48,23 @@ INSERT INTO `categories` (`id`, `category_en`, `category_vn`, `soft_delete`, `cr
 (5, 'Entertain', 'Giải trí', '0', NULL, NULL, NULL),
 (6, 'Life', 'Đời sống', '0', NULL, NULL, NULL),
 (7, 'Business', 'Kinh doanh', '0', NULL, NULL, NULL),
-(8, 'World', 'Thế giới', '0', NULL, NULL, NULL),
-(22, 'zxczx', 'czxc', '0', NULL, '2022-03-20 20:47:38', '2022-03-20 20:47:38'),
-(24, 'dd', 'dddd', '0', NULL, '2022-03-20 20:50:57', '2022-03-20 20:50:57'),
-(25, 'asdasd', 'asdasd', '0', NULL, '2022-03-20 20:52:58', '2022-03-20 20:52:58'),
-(26, 'asdas', 'dsadasd', '0', NULL, '2022-03-27 20:29:08', '2022-03-27 20:29:08'),
-(27, 'dfsdfsd', 'fsdfsf', '0', NULL, '2022-03-31 22:06:33', '2022-03-31 22:06:33'),
-(28, 'xcv', 'xcv', '0', NULL, NULL, NULL),
-(29, 'jh', 'hj', '0', NULL, '2022-03-31 22:08:30', '2022-03-31 22:08:30');
+(8, 'World', 'Thế giới', '0', NULL, '2022-05-24 08:05:16', NULL),
+(54, 'sadasd', 'asd', '0', '2022-05-22 11:43:38', '2022-05-22 04:43:41', '2022-05-22 04:43:41'),
+(55, 'zxcvzx', 'cvzcxv', '0', '2022-05-22 11:45:08', '2022-05-22 04:45:59', '2022-05-22 04:45:59'),
+(56, 'cvcvc', 'vcv', '0', '2022-05-22 11:46:15', '2022-05-22 04:46:19', '2022-05-22 04:46:19'),
+(57, 'vbvb', 'vb', '0', '2022-05-22 11:49:57', '2022-05-22 04:50:26', '2022-05-22 04:50:26'),
+(58, 'zzz', 'zzzz', '0', '2022-05-22 11:50:03', '2022-05-22 04:50:07', '2022-05-22 04:50:07'),
+(59, 'cvbcvb', 'cxvbxcvb', '0', '2022-05-22 11:53:00', '2022-05-22 04:56:32', '2022-05-22 04:56:32'),
+(60, 'cvbcvb', 'vbc', '0', '2022-05-22 11:53:03', '2022-05-22 04:53:07', '2022-05-22 04:53:07'),
+(61, 'asdasd', 'asdasd', '0', '2022-05-22 11:53:17', '2022-05-22 04:55:21', '2022-05-22 04:55:21'),
+(62, 'sdssdd', 'sdsd', '0', '2022-05-23 13:12:43', '2022-05-23 06:12:49', '2022-05-23 06:12:49'),
+(63, 'sdsadsad', 'sadasd', '0', '2022-05-24 14:51:48', '2022-05-24 08:03:16', '2022-05-24 08:03:16'),
+(64, 'asdasd', 'asd', '0', '2022-05-24 15:05:26', '2022-05-24 08:07:21', '2022-05-24 08:07:21'),
+(65, 'zxczxc', 'zxczxc', '0', '2022-05-24 15:07:48', '2022-05-24 08:20:32', '2022-05-24 08:20:32'),
+(66, 'asd', 'asa', '0', '2022-05-24 15:20:00', '2022-05-24 08:20:23', '2022-05-24 08:20:23'),
+(67, 'xzczxc', 'zxczxc', '0', '2022-05-24 15:27:58', '2022-05-24 08:28:02', '2022-05-24 08:28:02'),
+(68, 'dfsgfsdg', 'sfdgdfg', '0', '2022-05-24 15:32:59', '2022-05-24 08:33:02', '2022-05-24 08:33:02'),
+(69, 'dfssdf', 'sdffsd', '0', '2022-05-24 15:33:28', '2022-05-24 08:33:36', '2022-05-24 08:33:36');
 
 -- --------------------------------------------------------
 
@@ -76,9 +85,13 @@ CREATE TABLE `districts` (
 --
 
 INSERT INTO `districts` (`id`, `district_en`, `district_vn`, `created_at`, `updated_at`) VALUES
-(2, 'ABC', 'Day la adasdsad', NULL, NULL),
-(3, 'xzcxzczxc', 'xzcxvcx', NULL, NULL),
-(4, 'xzczcx', '123213213213', NULL, NULL);
+(2, 'Hoan Kiem', 'Hoàn Kiếm', NULL, NULL),
+(3, 'Hai Ba Trung', 'Hai Bà Trưng', NULL, NULL),
+(4, 'Dong Da', 'Đống Đa', NULL, NULL),
+(5, 'Hoang Mai', 'Hoàng Mai', NULL, NULL),
+(6, 'Thanh Xuân', 'Thanh Xuan', NULL, NULL),
+(7, 'Long Bien', 'Long Biên', NULL, NULL),
+(8, 'asdas', 'dasdas', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -95,6 +108,27 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `livetvs`
+--
+
+CREATE TABLE `livetvs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `embed_code` text COLLATE utf8mb4_unicode_ci,
+  `status` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `livetvs`
+--
+
+INSERT INTO `livetvs` (`id`, `embed_code`, `status`, `created_at`, `updated_at`) VALUES
+(1, '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/i1P-9IspBus\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -128,7 +162,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (13, '2022_01_26_150958_create_seos_table', 7),
 (14, '2022_01_27_070139_create_photos_table', 8),
 (15, '2022_03_21_034218_add_column_deleted_at_to_category_table', 9),
-(16, '2022_03_26_035117_create_permission_tables', 10);
+(16, '2022_03_26_035117_create_permission_tables', 10),
+(19, '2022_05_25_073252_create_prayers_table', 11),
+(20, '2022_05_25_080600_create_livetvs_table', 12),
+(21, '2022_05_25_085421_create_notices_table', 13),
+(22, '2022_05_25_092048_create_websites_table', 14),
+(23, '2022_05_25_105202_create_videos_table', 15);
 
 -- --------------------------------------------------------
 
@@ -180,6 +219,27 @@ INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `notices`
+--
+
+CREATE TABLE `notices` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `notice` text COLLATE utf8mb4_unicode_ci,
+  `status` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `notices`
+--
+
+INSERT INTO `notices` (`id`, `notice`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'asas', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `password_resets`
 --
 
@@ -188,6 +248,13 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('admin@gmail.com', '$2y$10$LFx8HhStIudLUFt8ltJr7.WU.3YqJrrrlnKC/UA2jGVodwMvAKQ4C', '2022-05-23 05:40:59');
 
 -- --------------------------------------------------------
 
@@ -257,7 +324,8 @@ CREATE TABLE `photos` (
 INSERT INTO `photos` (`id`, `photo`, `title`, `type`, `created_at`, `updated_at`) VALUES
 (1, 'image/photogallery/61f254405ab14.jpg', 'asdsadasd', '0', NULL, NULL),
 (2, 'image/photogallery/61f4b8a903770.jpg', 'bgbgbgb', '1', NULL, NULL),
-(3, 'image/photogallery/61f4b8b1d1717.jpg', 'xcvxcvcxvcxv', '0', NULL, NULL);
+(5, 'image/photogallery/628e075270e2a2.32406281.png', 'sadf', '0', NULL, NULL),
+(8, 'image/photogallery/628e08812e2537.96129022.jpeg', 'asdads', '1', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -298,6 +366,31 @@ INSERT INTO `posts` (`id`, `category_id`, `subcategory_id`, `district_id`, `subd
 (2, 3, 3, 2, 2, 1, 'Why is the Chief of Tay Ho Cong Lake under supply under the Law?', 'Vì sao cựu trưởng Công an Tây Hồ ép cấp dưới thả người trái luật?', 'image/postimg/61f1508488488.jpg', '<p>Hanoi Colonel Phung Anh Le (former Chief of Tay Ho District Police, former Head of the City Police Department of the City Police) was accused of putting pressure, using the power of forcing subordinating legal people.</p><p><br></p><p>Mr. Le (55 years old) and subordinates at Tay Ho Police are Nguyen Duc Chau (49 years old, former criminal police captain), Vu Cong Ngoc (42 years old, former criminal police deputy team) and Le Dinh Trung (45 years old, former police deputy police executed criminal judgment and judicial assistance) was proposed by the Supreme VKSND agency proposing prosecution of illegal charges of people arrested, who was temporarily seized, detention, who is serving imprisonment sentences under Clause 1, Article 378 of the Criminal Code. The penalty frame from renovation is not detained for up to 3 years or imprisonment from 6 months to 3 years.</p><p><br></p><p>According to conclusions, on June 19, 2016, Mr. Nguyen Cong Thanh, 32, to Public Security Headquarters of Yen Phu Ward, Tay Ho District, denied by a group of illegal arrests and injuries. The incident was recorded by the staff in the live book and reported Mr. Duong Hong Link, Chief of Ward Police.</p><p><br></p><p>He finished calling the Chief of Le and Deputy Head of the Police of Pham Quy Hai about the incident with signs of criminal arrest of illegal people and intentionally causing injury. The criminal police team was later tasked with verification to appoint staff to Yen Phu Ward Police.</p><p><br></p><p>Colonel Phung Anh Le when receiving the head of the economic police department, 2019. Photo: AnNinhThuDo</p><p>Colonel Phung Anh Le when receiving the head of the economic police department, 2019. Photo: AnNinhThuDo</p><p><br></p><p>The team identified Nguyen Huu Tai, 29 years old, and his commitment to conduct offense. Three days later, Tai came to Tay Ho District Police. When verifying, investigators who see the financial suggestions show signs of many criminal acts should propose temporary seizure to investigate and catch relevant suspects.</p><p><br></p><p>The vice-criminal team dancer Ngoc agrees with the proposal and calls to report to the Chizzhou and bring the file to Mr. Hai\'s own house. Here Mr. Hai Ken approved the proposal and signed a decision to temporarily hold the suspects of the acts of arresting illegal people. On the evening of September 22, 2016, Tai was put into the temporary holder of Tay Ho district police.</p><p><br></p><p>From the beginning of the animal, his wife and his father and his father asked acquaintances to find a relationship at Tay Ho District Police for help. Through the intermediate relationship, Phung Van Bay, that time was fixing the office for Mr. Le, asking for. Mr. Seven later was reported by Mr. Le announcing that the Tai Family needed 110 million VND to reconcile with harm.</p><p><br></p><p>22h on September 22, 2016, seven holding VND 110 million of the talent to the room gave Mr. Le, put it on the desk and ask for reconciliation. After receiving money, Mr. Le called for the requirement to bring the document to review. About 23h, finished reading the file, Mr. Le said that the evidence of weak talent and the direction must be taken out of the temporary custody.</p><p><br></p><p>Vice-pearl team provided that the financial decision was implementing the temporary decision, so he wanted to have a decision to cancel the temporary seizure or decision to release. Mr. Le said \"Do not care\" and still direct Ngoc to continue to follow the \"Order\", the conclusion of the Supreme VKSND Investigation Agency stated.</p><p><br></p><p>About 0h30 on September 23, 2016, Ngoc and some criminal officials came to bring the talent from the temporary holder. Because Ngoc did not decide to cancel temporary custody, Le Dinh Trung, who was in charge of the Ca that day, exchanged over the phone with Mr. Le.</p><p><br></p><p>Talking to Mr. Le through the phone, Trung Titric Presentation needs to be exchanged with the Deputy Head of the District Public Security in charge of Central Justice and Advanced Support.</p><p><br></p><p>After reporting the number of levels through the phone, Trung received the instructions of the superiors: \"Le Le has directed, it must be heard, the district of the boss, wants to do anything.\" Right in the night, talented for.</p><p><br></p><p>Police of the Colonel Phung Anh Le. Photo: Pham Cuong</p><p>Police examine the Colonel Phung Anh Le, September 2021. Photo: Pham Cuong</p><p><br></p><p>Criminal officials The days later suggested the team leader to ask Mr. Le to continue verifying. However, Mr. Chau said Mr. Le did not agree to work, many officials were also given the head of the \"taken\" by the district. Mr. Chau Khai, Mr. Le also directed \"for them to reconcile and withdraw.\"</p><p><br></p><p>After two reconciles at Tay Ho District Police, suspects and suspects are suspended to unify the views. Accordingly, the talent must compensate VND 15 million and fix the phone screen for the city. The investigator then did not make a record of this reconciliation because it argued that the acts of arresting illegal people did not belong to the group of prosecution as required by the harm. The incident was silent from there.</p><p><br></p><p>On January 22, 2021, Hanoi Police overturned the records and prosecuted the case, prosecuted the accused with accompanying their accused of robbery. Mr. Le\'s offense was gradually braked.</p><p><br></p><p>The investigation process, the supreme VKSND said Mr. Le did not recognize behavior and blame. Three accused remaining into urgent.</p><p><br></p><p>However, the authorities argue that the testimony of the accused and other stakeholders \"enough basis to confirm Mr. Le has committed a crime of illegal legislative people arrested, who was temporarily seized.\"</p><p><br></p><p>Tay Ho district police headquarters. Photo: Pham Cuong</p><p>Tay Ho district police headquarters. Photo: Pham Cuong</p><p><br></p><p>According to conclusion, Mr. Le is cHuzhou, the Can Chau, Ngoc and Middle plays the role of homeliness. The accused is that the investigator is basically trained, understanding the provisions of the law but lack of cultivation, moral training and lack of lights that lead to crimes.</p><p><br></p><p>In this case, the testimony of the financier took 110 million to Mr. Le to help reconcile with harm. Because Mr. Le did not admit, the Supreme VKSND Investigation Agency separated behavior showing signs of bringing bribes, accepting bribes and bribes to continue to clarify.</p><p><br></p><p>For other stakeholders such as Mr. Hai and a number of Tay Ho district police officers, the investigating agency has proposed a competent authority to handle according to regulations.</p><p><br></p><p>The Supreme VKSND also decided to separate criminal cases on charges of not being examined for criminal liability people guilty to investigate another case.</p>', '<p class=\"MsoNormal\" style=\"margin-bottom:0cm;line-height:21.6pt;background:#FCFAF6\"><span style=\"font-size:12.0pt;font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;;color:#757575;text-transform:uppercase;letter-spacing:-.4pt\">HÀ\r\nNỘI</span><span style=\"font-size:13.5pt;font-family:&quot;Arial&quot;,sans-serif;\r\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#222222\">Cựu đại tá Phùng Anh\r\nLê (cựu trưởng Công an quận Tây Hồ, cựu trưởng phòng Cảnh sát kinh tế Công an\r\nthành phố) bị cáo buộc gây sức ép, dùng quyền lực buộc cấp dưới tha người trái\r\npháp luật.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:0cm;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Ông Lê (55 tuổi) cùng các thuộc cấp ở Công an Tây Hồ là\r\nNguyễn Đức Châu (49 tuổi, cựu đội trưởng cảnh sát hình sự), Vũ Công Ngọc (42\r\ntuổi, cựu đội phó cảnh sát hình sự) và Lê Đình Trung (45 tuổi, cựu đội phó cảnh\r\nsát thi hành án hình sự và hỗ trợ tư pháp) vừa bị Cơ quan điều tra VKSND Tối\r\ncao đề nghị truy tố về tội&nbsp;<i>Tha trái pháp luật người bị bắt, người đang\r\nbị tạm giữ, tạm giam, người đang chấp hành án phạt tù</i>&nbsp;theo khoản 1\r\nđiều 378 Bộ luật hình sự. Khung hình phạt từ cải tạo không giam giữ đến 3 năm\r\nhoặc phạt tù từ 6 tháng đến 3 năm.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Theo kết luận, ngày 19/6/2016, anh Nguyễn Công Thành, 32\r\ntuổi, đến trụ sở công an phường Yên Phụ, quận Tây Hồ, tố giác bị một nhóm người\r\nbắt giữ trái pháp luật, đánh gây thương tích. Sự việc được cán bộ ghi lại vào\r\nsổ trực ban và báo cáo ông Dương Hồng Kết, Trưởng công an phường.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:0cm;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Ông Kết gọi điện báo cáo Trưởng quận Lê và Phó trưởng công\r\nan quận Phạm Quý Hải về vụ việc có dấu hiệu phạm tội&nbsp;<i>Bắt giữ người trái\r\npháp luật</i>&nbsp;và&nbsp;<i>Cố ý gây thương tích</i>. Đội cảnh sát hình sự\r\nsau đó được giao nhiệm vụ xác minh nên cử cán bộ đến Công an phường Yên Phụ.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:0cm;line-height:normal;background:#F0EEEA\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;;color:black;mso-color-alt:windowtext;mso-no-proof:yes\"><!--[if gte vml 1]><v:shapetype\r\n id=\"_x0000_t75\" coordsize=\"21600,21600\" o:spt=\"75\" o:preferrelative=\"t\"\r\n path=\"m@4@5l@4@11@9@11@9@5xe\" filled=\"f\" stroked=\"f\">\r\n <v:stroke joinstyle=\"miter\"/>\r\n <v:formulas>\r\n  <v:f eqn=\"if lineDrawn pixelLineWidth 0\"/>\r\n  <v:f eqn=\"sum @0 1 0\"/>\r\n  <v:f eqn=\"sum 0 0 @1\"/>\r\n  <v:f eqn=\"prod @2 1 2\"/>\r\n  <v:f eqn=\"prod @3 21600 pixelWidth\"/>\r\n  <v:f eqn=\"prod @3 21600 pixelHeight\"/>\r\n  <v:f eqn=\"sum @0 0 1\"/>\r\n  <v:f eqn=\"prod @6 1 2\"/>\r\n  <v:f eqn=\"prod @7 21600 pixelWidth\"/>\r\n  <v:f eqn=\"sum @8 21600 0\"/>\r\n  <v:f eqn=\"prod @7 21600 pixelHeight\"/>\r\n  <v:f eqn=\"sum @10 21600 0\"/>\r\n </v:formulas>\r\n <v:path o:extrusionok=\"f\" gradientshapeok=\"t\" o:connecttype=\"rect\"/>\r\n <o:lock v:ext=\"edit\" aspectratio=\"t\"/>\r\n</v:shapetype><v:shape id=\"Picture_x0020_3\" o:spid=\"_x0000_i1027\" type=\"#_x0000_t75\"\r\n alt=\"Đại tá Phùng Anh Lê khi nhận chức trưởng phòng Cảnh sát kinh tế, năm 2019. Ảnh: Anninhthudo\"\r\n style=\'width:468pt;height:313.8pt;visibility:visible;mso-wrap-style:square\'>\r\n <v:imagedata src=\"file:///C:/Users/thuan/AppData/Local/Temp/msohtmlclip1/01/clip_image001.jpg\"\r\n  o:title=\" Anninhthudo\"/>\r\n</v:shape><![endif]--><!--[if !vml]--><img width=\"624\" height=\"418\" src=\"file:///C:/Users/thuan/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg\" alt=\"Đại tá Phùng Anh Lê khi nhận chức trưởng phòng Cảnh sát kinh tế, năm 2019. Ảnh: Anninhthudo\" v:shapes=\"Picture_x0020_3\"><!--[endif]--></span><span style=\"font-size:12.0pt;\r\nfont-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:&quot;Times New Roman&quot;\"><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:0cm;line-height:16.8pt\"><span style=\"font-size:10.5pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Đại tá Phùng Anh Lê khi nhận chức trưởng phòng Cảnh sát kinh\r\ntế, năm 2019. Ảnh:&nbsp;<i>Anninhthudo</i><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:0cm;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Đội hình sự xác định&nbsp;<a href=\"https://vnexpress.net/truy-duoi-nguoi-no-4-trieu-dong-4270682.html\"><span style=\"color:#076DB6\">Nguyễn Hữu Tài</span></a>, 29 tuổi, cùng đồng phạm đã\r\nthực hiện hành vi phạm tội. Ba ngày sau, Tài đến Công an quận Tây Hồ đầu thú.\r\nKhi xác minh, điều tra viên đội hình sự thấy Tài có dấu hiệu của nhiều hành vi\r\nphạm tội nên đề xuất tạm giữ để điều tra và bắt các nghi phạm liên quan.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Đội phó hình sự Vũ Công Ngọc đồng ý với đề xuất và gọi điện\r\nbáo cáo Đội trưởng Châu rồi mang hồ sơ đến nhà riêng của ông Hải. Tại đây ông\r\nHải ký duyệt đề xuất và ký quyết định tạm giữ nghi phạm Tài về hành vi bắt giữ\r\nngười trái pháp luật. Tối 22/9/2016, Tài bị đưa vào nhà tạm giữ Công an quận\r\nTây Hồ.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Từ lúc Tài đi đầu thú, vợ và bố vợ anh ta đã nhờ người quen\r\ntìm mối quan hệ tại Công an quận Tây Hồ nhờ giúp đỡ. Qua mối quan hệ trung\r\ngian, Phùng Văn Bảy, thời điểm đó đang sửa phòng làm việc cho ông Lê, đã ngỏ\r\nlời nhờ. Ông Bảy sau đó được ông Lê thông báo gia đình Tài cần chuẩn bị 110\r\ntriệu đồng để hòa giải với bị hại.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">22h ngày 22/9/2016, Bảy cầm 110 triệu đồng của người nhà Tài\r\nđến phòng đưa cho ông Lê, đặt lên bàn làm việc và nhờ giúp hòa giải. Sau khi\r\nnhận tiền, ông Lê gọi điện thoại cho thuộc cấp yêu cầu mang tài liệu đến xem\r\nxét. Khoảng 23h, đọc xong hồ sơ, ông Lê cho rằng chứng cứ tạm giữ Tài còn yếu\r\nvà chỉ đạo phải đưa ra khỏi nhà tạm giữ.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Đội phó Ngọc lúc đó cho rằng Tài đang thi hành quyết định\r\ntạm giữ nên muốn cho về phải có quyết định hủy bỏ tạm giữ hoặc quyết định trả\r\ntự do. Ông Lê nói \"không quan tâm\" và vẫn chỉ đạo Ngọc tiếp tục thực\r\nhiện theo \"lệnh\", kết luận của Cơ quan điều tra VKSND Tối cao nêu.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Khoảng 0h30 ngày 23/9/2016, Ngọc cùng một số cán bộ đội hình\r\nsự đến đưa Tài ra khỏi nhà tạm giữ. Vì Ngọc không có quyết định hủy bỏ tạm giữ,\r\nLê Đình Trung, người phụ trách ca trực hôm đó, đã trao đổi qua điện thoại với\r\nông Lê.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Nói chuyện xong với ông Lê qua điện thoại, Trung đề xuất\r\nNgọc cần trao đổi thêm với phó trưởng công an quận phụ trách lĩnh vực hỗ trợ tư\r\npháp và cấp trên của Trung.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Sau khi báo cáo lòng vòng nhiều cấp qua điện thoại, Trung\r\nnhận được chỉ đạo của cấp trên: \"Sếp Lê đã chỉ đạo thì phải nghe thôi,\r\nquận này của sếp cả, muốn làm gì chả được\". Ngay trong đêm, Tài được cho\r\nvề.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:0cm;line-height:normal;background:#F0EEEA\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;;color:black;mso-color-alt:windowtext;mso-no-proof:yes\"><!--[if gte vml 1]><v:shape\r\n id=\"Picture_x0020_2\" o:spid=\"_x0000_i1026\" type=\"#_x0000_t75\" alt=\"Cảnh sát khám nhà đại tá Phùng Anh Lê. Ảnh: Phạm Cường\"\r\n style=\'width:468pt;height:308.4pt;visibility:visible;mso-wrap-style:square\'>\r\n <v:imagedata src=\"file:///C:/Users/thuan/AppData/Local/Temp/msohtmlclip1/01/clip_image003.jpg\"\r\n  o:title=\" Phạm Cường\"/>\r\n</v:shape><![endif]--><!--[if !vml]--><img border=\"0\" width=\"624\" height=\"411\" src=\"file:///C:/Users/thuan/AppData/Local/Temp/msohtmlclip1/01/clip_image004.jpg\" alt=\"Cảnh sát khám nhà đại tá Phùng Anh Lê. Ảnh: Phạm Cường\" v:shapes=\"Picture_x0020_2\"><!--[endif]--></span><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\"><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:0cm;line-height:16.8pt\"><span style=\"font-size:10.5pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Cảnh sát khám nhà đại tá Phùng Anh Lê, tháng 9/2021.\r\nẢnh:&nbsp;<i>Phạm Cường</i><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Cán bộ đội hình sự những ngày sau đó nhiều lần đề xuất lãnh\r\nđạo đội để xin ý kiến ông Lê tiếp tục xác minh. Tuy nhiên, ông Châu cho biết\r\nông Lê không đồng ý cho làm, nhiều cán bộ cũng bị trưởng quận \"gạt\"\r\nra khỏi sự việc. Ông Châu khai, ông Lê còn chỉ đạo \"cho chúng nó hòa giải,\r\nrút đơn\".<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Sau hai lần hòa giải tại Công an quận Tây Hồ, nghi phạm Tài\r\nvà bị hại Thành mới thống nhất được quan điểm. Theo đó, Tài phải bồi thường 15\r\ntriệu đồng và sửa màn hình điện thoại cho Thành. Điều tra viên lúc đó không lập\r\nbiên bản về việc hòa giải này vì cho rằng hành vi bắt giữ người trái pháp luật\r\nkhông thuộc nhóm tội khởi tố theo yêu cầu của bị hại. Sự việc đi vào im lặng từ\r\nđó.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:0cm;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Ngày 22/1/2021, Công an Hà Nội lật lại hồ sơ và khởi tố vụ\r\nán, khởi tố bị can với Tài cùng đồng bọn về tội&nbsp;<i>Cướp tài sản.&nbsp;</i>Sai\r\nphạm của ông Lê cùng thuộc cấp dần bị phanh phui.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Quá trình điều tra, VKSND Tối cao cho rằng ông Lê không khai\r\nnhận hành vi và đổ lỗi. Ba bị can còn lại thành khẩn.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:0cm;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Tuy nhiên, nhà chức trách cho rằng lời khai của các bị can\r\nvà những người liên quan khác \"đủ cơ sở khẳng định ông Lê đã phạm vào\r\ntội&nbsp;<i>Tha trái pháp luật người bị bắt, người đang bị tạm giữ\"</i>.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:0cm;line-height:normal;background:#F0EEEA\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;;color:black;mso-color-alt:windowtext;mso-no-proof:yes\"><!--[if gte vml 1]><v:shape\r\n id=\"Picture_x0020_1\" o:spid=\"_x0000_i1025\" type=\"#_x0000_t75\" alt=\"Trụ sở Công an quận Tây Hồ. Ảnh: Phạm Cường\"\r\n style=\'width:468pt;height:310.2pt;visibility:visible;mso-wrap-style:square\'>\r\n <v:imagedata src=\"file:///C:/Users/thuan/AppData/Local/Temp/msohtmlclip1/01/clip_image005.jpg\"\r\n  o:title=\" Phạm Cường\"/>\r\n</v:shape><![endif]--><!--[if !vml]--><img border=\"0\" width=\"624\" height=\"414\" src=\"file:///C:/Users/thuan/AppData/Local/Temp/msohtmlclip1/01/clip_image006.jpg\" alt=\"Trụ sở Công an quận Tây Hồ. Ảnh: Phạm Cường\" v:shapes=\"Picture_x0020_1\"><!--[endif]--></span><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\"><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:0cm;line-height:16.8pt\"><span style=\"font-size:10.5pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Trụ sở Công an quận Tây Hồ. Ảnh:&nbsp;<i>Phạm Cường</i><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Theo kết luận, ông Lê là chủ mưu, các bị can Châu, Ngọc và\r\nTrung giữ vai trò đồng phạm giúp sức. Các bị can đều là điều tra viên được đào\r\ntạo cơ bản, hiểu rõ quy định pháp luật nhưng thiếu tu dưỡng, rèn luyện đạo đức\r\nvà thiếu bản lĩnh dẫn đến phạm tội.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:0cm;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Trong vụ án này còn lời khai về việc người nhà Tài đưa 110\r\ntriệu đồng cho ông Lê để giúp hòa giải với bị hại. Do ông Lê không thừa nhận,\r\nCơ quan điều tra VKSND Tối cao tách hành vi có dấu hiệu&nbsp;<i>Đưa hối lộ,\r\nNhận hối lộ&nbsp;</i>và&nbsp;<i>Môi giới hối lộ</i>&nbsp;để tiếp tục làm rõ.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:12.0pt;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">Với những người liên quan khác như ông Hải cùng một số cán\r\nbộ Công an quận Tây Hồ, Cơ quan điều tra đã kiến nghị cấp có thẩm quyền xử lý\r\ntheo quy định.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom:0cm;line-height:21.6pt\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\r\n&quot;Times New Roman&quot;\">VKSND Tối cao cũng quyết định tách vụ án hình sự về tội<i>&nbsp;Không\r\ntruy cứu trách nhiệm hình sự người có tội&nbsp;</i>để điều tra thành vụ án\r\nkhác.<o:p></o:p></span></p><p class=\"description\" style=\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-rendering: optimizelegibility; font-size: 18px; line-height: 28.8px; color: rgb(34, 34, 34); font-family: arial; background-color: rgb(252, 250, 246);\">\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n</p><p class=\"MsoNormal\"><o:p>&nbsp;</o:p></p>', 'law', 'phap-luat', NULL, 1, 1, 1, '29-01-2022', 'January', NULL, NULL),
 (3, 3, 1, 3, 3, 1, 'adssadsa', 'dasdasdasdas', 'image/postimg/61f4e767e6708.jpg', '<p>sdaaaaaaaaaaaaaa</p>', '<p>sadsdadadsad</p>', 'covid 19', 'sadasd', NULL, NULL, NULL, NULL, '29-01-2022', 'January', NULL, NULL),
 (5, 3, 1, 2, 2, 1, 'vcvcvcv', 'cvccvcvcvcv', 'image/postimg/61f4f42e41873.jpg', '<p>dâsd</p>', '<p>ádádádsadsad</p>', 'sadsadqwe', 'qwewqewqewq', NULL, NULL, NULL, NULL, '29-01-2022', 'January', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prayers`
+--
+
+CREATE TABLE `prayers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `fajr` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `johor` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `asor` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `magrib` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `eaha` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `jummah` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `prayers`
+--
+
+INSERT INTO `prayers` (`id`, `fajr`, `johor`, `asor`, `magrib`, `eaha`, `jummah`, `created_at`, `updated_at`) VALUES
+(1, '5:10 AM', '1:30 PM', '4:30 PM', '6:10 PM', '8:10 PM', '1:10 PM', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -390,9 +483,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('42vU06iW9hCyuGRwNERWTCP5TONflcnTdyTLYzNX', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiYVdsakMzYkh3akNPM1ZjblI3QzRVTGVEeHloSGZDTTVYWUNKWGZtQyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jYXRlZ29yaWVzIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJGg5a0NFL05McGZ0d2dQMzhZTEtTak9lLnh6Si5MazMwRHFIYTBZN3BjVUY0LmsuenJSLlZPIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRoOWtDRS9OTHBmdHdnUDM4WUxLU2pPZS54ekouTGszMERxSGEwWTdwY1VGNC5rLnpyUi5WTyI7fQ==', 1648789720),
-('c149o2ah1BVRgWtS859vOmwhMjOqKKLocEiuSJAZ', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiTXVCeWM2M1lrMWxJZmpMbnlhOFppS3BmSFVFZmNkOUU1MUZZbXAxNiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NDoibGFuZyI7czoyOiJ2biI7fQ==', 1651157107),
-('fXUhM97TOWpBoO7kO4S1qd0NmCXKN8aWHL4ywLWy', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiYjdmaXNTOGIzOHY4aDNpTXdxY1JJazZIak9maVlFNlppQndqNDZhdSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jYXRlZ29yaWVzIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJGg5a0NFL05McGZ0d2dQMzhZTEtTak9lLnh6Si5MazMwRHFIYTBZN3BjVUY0LmsuenJSLlZPIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRoOWtDRS9OTHBmdHdnUDM4WUxLU2pPZS54ekouTGszMERxSGEwWTdwY1VGNC5rLnpyUi5WTyI7fQ==', 1652070163);
+('NCvkOVl3oWFKgJrCTTjQhTXKXB58yIVU7gDyeJTg', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoieGM3S3lIR2ZqR1I2ZlZLakdlNVNmNFB4alF2YUF1VEVBZnF1OTFtdyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1653478027);
 
 -- --------------------------------------------------------
 
@@ -410,6 +501,13 @@ CREATE TABLE `socials` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `socials`
+--
+
+INSERT INTO `socials` (`id`, `facebook`, `twitter`, `youtube`, `linkedin`, `instagram`, `created_at`, `updated_at`) VALUES
+(1, 'https://www.facebook.com/', 'https://twitter.com/?lang=vi', 'https://www.youtube.com/', 'https://www.linkedin.com/', 'https://www.instagram.com/', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -431,8 +529,8 @@ CREATE TABLE `subcategories` (
 --
 
 INSERT INTO `subcategories` (`id`, `category_id`, `subcategory_en`, `subcategory_vn`, `created_at`, `updated_at`) VALUES
-(1, '3', 'PERSONNEL123', 'NHÂN SỰ123', NULL, NULL),
-(3, '3', 'PERSONNEL', 'NHÂN SỰ', NULL, NULL);
+(1, '3', 'PERSONNEL', 'NHÂN SỰ', NULL, NULL),
+(3, '2', 'PERSONNEL', 'NHÂN SỰ', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -454,8 +552,8 @@ CREATE TABLE `subdistricts` (
 --
 
 INSERT INTO `subdistricts` (`id`, `district_id`, `subdistrict_en`, `subdistrict_vn`, `created_at`, `updated_at`) VALUES
-(2, '2', 'asdsad', 'asdasdad', NULL, NULL),
-(3, '3', 'safddfdsfdfsfsdsfdsfdsfds', 'fdsfsfsfsfsfsfdsf', NULL, NULL);
+(2, '2', 'Chuong Duong', 'Chương Dương', NULL, NULL),
+(3, '4', 'Hang Bot', 'Hàng Bột', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -486,7 +584,55 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `tw
 (1, 'Admin', 'admin@gmail.com', NULL, '$2y$10$h9kCE/NLpftwgP38YLKSjOe.xzJ.Lk30DqHa0Y7pcUF4.k.zrR.VO', NULL, NULL, NULL, NULL, NULL, '2022-01-20 00:23:52', '2022-01-20 00:23:52'),
 (2, 'kenbe123', 'xzxx@gmail.com', NULL, '$2y$10$pqLpU.Mqf.Mw9DAt0UQLEuS8gbLLEGnVog1p3RD1u4t19ZAteyeU6', NULL, NULL, NULL, NULL, NULL, '2022-03-29 08:14:41', '2022-03-29 08:14:41'),
 (4, 'cvcv', 'vcxv@gmail.com', NULL, '$2y$10$I6IicRhhs8luH..aH4o6OeqeKJ0Eiie61PdsBT7xTE8yUHw1Dql2W', NULL, NULL, NULL, NULL, NULL, '2022-03-29 08:16:32', '2022-03-29 08:16:32'),
-(5, 'fdsf', 'ken@gmail.com', NULL, '$2y$10$rCAubcR8alt0CbT/43FSf.QRH/SIapIQQX76zmRRWNjMPXVMun0vW', NULL, NULL, NULL, NULL, NULL, '2022-03-29 08:20:25', '2022-03-29 08:20:25');
+(5, 'fdsf', 'ken@gmail.com', NULL, '$2y$10$rCAubcR8alt0CbT/43FSf.QRH/SIapIQQX76zmRRWNjMPXVMun0vW', NULL, NULL, NULL, NULL, NULL, '2022-03-29 08:20:25', '2022-03-29 08:20:25'),
+(6, 'ken123', 'thuanbin1101@yahoo.com', NULL, '$2y$10$Big1g9avAgMeECKhYfzHSuGpnVFw.WZytN1Y.zHbSqGgTl0CsCODy', NULL, NULL, NULL, NULL, NULL, '2022-05-10 06:26:36', '2022-05-10 06:26:36'),
+(7, 'babyken111', 'asdasd@gmail.com', NULL, '$2y$10$C4.k0tNw2OkL/q7AkJ85nuApgcyeGcTu34pWSoWWeACRohgpiz6JK', NULL, NULL, NULL, NULL, NULL, '2022-05-11 07:32:39', '2022-05-11 07:32:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `videos`
+--
+
+CREATE TABLE `videos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `embed_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `videos`
+--
+
+INSERT INTO `videos` (`id`, `title`, `embed_code`, `type`, `created_at`, `updated_at`) VALUES
+(2, 'sad1', 'sda1', '0', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `websites`
+--
+
+CREATE TABLE `websites` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `website_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `website_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `websites`
+--
+
+INSERT INTO `websites` (`id`, `website_name`, `website_link`, `created_at`, `updated_at`) VALUES
+(2, 'Laravel', 'https://laravel.com/docs/9.x', NULL, NULL),
+(3, 'React JS', 'https://reactjs.org/', NULL, NULL),
+(4, 'VueJS', 'https://vuejs.org/', NULL, NULL),
+(5, 'Angular', 'https://angular.io/', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -512,6 +658,12 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
+-- Indexes for table `livetvs`
+--
+ALTER TABLE `livetvs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -530,6 +682,12 @@ ALTER TABLE `model_has_permissions`
 ALTER TABLE `model_has_roles`
   ADD PRIMARY KEY (`role_id`,`model_id`,`model_type`),
   ADD KEY `model_has_roles_model_id_model_type_index` (`model_id`,`model_type`);
+
+--
+-- Indexes for table `notices`
+--
+ALTER TABLE `notices`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `password_resets`
@@ -564,6 +722,12 @@ ALTER TABLE `photos`
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `category_id` (`category_id`);
+
+--
+-- Indexes for table `prayers`
+--
+ALTER TABLE `prayers`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `roles`
@@ -619,6 +783,18 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
+-- Indexes for table `videos`
+--
+ALTER TABLE `videos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `websites`
+--
+ALTER TABLE `websites`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -626,13 +802,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `districts`
 --
 ALTER TABLE `districts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -641,10 +817,22 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `livetvs`
+--
+ALTER TABLE `livetvs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT for table `notices`
+--
+ALTER TABLE `notices`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -662,13 +850,19 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `prayers`
+--
+ALTER TABLE `prayers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -686,7 +880,7 @@ ALTER TABLE `seos`
 -- AUTO_INCREMENT for table `socials`
 --
 ALTER TABLE `socials`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `subcategories`
@@ -704,6 +898,18 @@ ALTER TABLE `subdistricts`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `videos`
+--
+ALTER TABLE `videos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `websites`
+--
+ALTER TABLE `websites`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --

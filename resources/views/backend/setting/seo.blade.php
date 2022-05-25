@@ -5,7 +5,7 @@
             <div class="card-body">
                 <h4 class="card-title">Default form</h4>
                 <p class="card-description"> Basic form layout </p>
-                <form class="forms-sample" method="POST" action="{{ route('update.seo', $seo->id) }}">
+                <form class="forms-sample" method="POST" action="{{ route('seo.update', $seo->id) }}">
                     @csrf
                     @method('PUT')
                     <div class="form-group">

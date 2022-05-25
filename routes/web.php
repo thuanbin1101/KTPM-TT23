@@ -78,11 +78,27 @@ Route::get('/edit/post/{id}', [PostController::class, 'edit'])->name('edit.post'
 Route::put('/update/post/{id}', [PostController::class, 'update'])->name('update.post');
 Route::delete('/delete/post/{id}', [PostController::class, 'destroy'])->name('destroy.post');
 
-// Socials Setting
-Route::get('/social/setting', [SettingController::class, 'socialSetting'])->name('social');
-//Seos Setting
+// Setting
+Route::get('/social/setting', [SettingController::class, 'socialSetting'])->name('social.setting');
+Route::PUT('/social/update/{id}', [SettingController::class, 'socialUpdate'])->name('social.update');
 Route::get('/seo/setting', [SettingController::class, 'seoSetting'])->name('seo.setting');
-Route::PUT('/seo/update/{id}', [SettingController::class, 'seoUpdate'])->name('update.seo');
+Route::PUT('/seo/update/{id}', [SettingController::class, 'seoUpdate'])->name('seo.update');
+Route::get('/prayer/setting', [SettingController::class, 'prayerSetting'])->name('prayer.setting');
+Route::PUT('/prayer/update/{id}', [SettingController::class, 'prayerUpdate'])->name('prayer.update');
+Route::get('/livetv/setting', [SettingController::class, 'livetvSetting'])->name('livetv.setting');
+Route::PUT('/livetv/update/{id}', [SettingController::class, 'livetvUpdate'])->name('livetv.update');
+Route::GET('/livetv/active/{id}', [SettingController::class, 'livetvActive'])->name('livetv.active');
+Route::GET('/livetv/deactive/{id}', [SettingController::class, 'livetvDeActive'])->name('livetv.deactive');
+Route::get('/notice/setting', [SettingController::class, 'noticeSetting'])->name('notice.setting');
+Route::PUT('/notice/update/{id}', [SettingController::class, 'noticeUpdate'])->name('notice.update');
+Route::GET('/notice/active/{id}', [SettingController::class, 'noticeActive'])->name('notice.active');
+Route::GET('/notice/deactive/{id}', [SettingController::class, 'noticeDeActive'])->name('notice.deactive');
+
+// Website
+Route::get('/website/setting', [SettingController::class, 'websiteSetting'])->name('website.setting');
+Route::get('/website/create', [SettingController::class, 'websiteCreate'])->name('website.create');
+Route::post('/website/store', [SettingController::class, 'websiteStore'])->name('website.store');
+
 
 //Photo Gallery
 Route::get('/photo', [GalleryController::class, 'index'])->name('photo');
@@ -91,6 +107,14 @@ Route::post('/store/photo', [GalleryController::class, 'store'])->name('store.ph
 Route::get('/edit/photo/{id}', [GalleryController::class, 'edit'])->name('edit.photo');
 Route::put('/update/photo/{id}', [GalleryController::class, 'update'])->name('update.photo');
 Route::delete('/delete/photo/{id}', [GalleryController::class, 'destroy'])->name('destroy.photo');
+
+//Video Gallery
+Route::get('/video', [GalleryController::class, 'indexVideo'])->name('video');
+Route::get('/add/video', [GalleryController::class, 'createVideo'])->name('add.video');
+Route::post('/store/video', [GalleryController::class, 'storeVideo'])->name('store.video');
+Route::get('/edit/video/{id}', [GalleryController::class, 'editVideo'])->name('edit.video');
+Route::put('/update/video/{id}', [GalleryController::class, 'updateVideo'])->name('update.video');
+Route::delete('/delete/video/{id}', [GalleryController::class, 'destroyVideo'])->name('destroy.video');
 
 //User
 Route::get('/user', [UserController::class, 'index'])->name('user');
@@ -107,6 +131,8 @@ Route::post('/store/role', [RolePermissionController::class, 'store'])->name('st
 Route::get('/edit/role/{id}', [RolePermissionController::class, 'edit'])->name('edit.role');
 Route::put('/update/role/{id}', [RolePermissionController::class, 'update'])->name('update.role');
 Route::delete('/delete/role/{id}', [RolePermissionController::class, 'destroy'])->name('destroy.role');
+
+
 
 // Json Data for Category and District (AJAX)
 Route::get('/get/subcategory/{category_id}', [PostController::class, 'getSubCateogry']);

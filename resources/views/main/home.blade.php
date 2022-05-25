@@ -36,6 +36,7 @@
         $photoSmall = DB::table('photos')
             ->where('type', 0)
             ->get();
+        $liveTv = DB::table('livetvs')->first();
     @endphp
     <!-- 1st-news-section-start -->
     <section class="news-section">
@@ -158,19 +159,19 @@
                     </div><!-- /.add-close -->
 
                     <!-- youtube-live-start -->
-                    <div class="cetagory-title-03">Live TV</div>
-                    <div class="photo">
-                        <div class="embed-responsive embed-responsive-16by9 embed-responsive-item"
-                             style="margin-bottom:5px;">
+                    @if($liveTv->status === 1)
+                        <div class="cetagory-title-03">Live TV</div>
+                        <div class="photo">
+                            <div class="embed-responsive embed-responsive-16by9 embed-responsive-item"
+                                 style="margin-bottom:5px;">
 
-                            <iframe width="729" height="410" src="https://www.youtube.com/embed/a9tq0aS5Zu8"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                        </div>
-                    </div><!-- /.youtube-live-close -->
+                                {!! $liveTv->embed_code !!}
 
-                    <!-- facebook-page-start -->
+                            </div>
+                        </div><!-- /.youtube-live-close -->
+                @endif
+
+                <!-- facebook-page-start -->
                     <div class="cetagory-title-03">Facebook</div>
                     <div class="fb-root">
                         facebook page here

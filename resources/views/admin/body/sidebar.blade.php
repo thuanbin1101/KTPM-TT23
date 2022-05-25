@@ -16,7 +16,7 @@
                     </div>
                     <div class="profile-name">
                         <h5 class="mb-0 font-weight-normal">
-                            {{--                            {{ auth()->user()->name ?? 'Test' }}--}}
+                            {{--                           {{ auth()->user()->name ?? 'Test' }}--}}
                             @php
                                 if(isset($_POST['userName']))
                                     {
@@ -148,7 +148,7 @@
             </a>
             <div class="collapse" id="ui-basic4">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="">Video
+                    <li class="nav-item"><a class="nav-link" href="{{ route('video') }}">Video
                             Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('photo') }}"> Photo
                             Gallery</a>
@@ -167,12 +167,21 @@
             </a>
             <div class="collapse" id="ui-basic5">
                 <ul class="nav flex-column sub-menu">
-                    {{-- <li class="nav-item"><a class="nav-link" href="{{route('social.setting')}}">Social Setting</a></li> --}}
+                    <li class="nav-item"><a class="nav-link" href="{{route('social.setting')}}">Social Setting</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('seo.setting') }}">Seo
                             Setting</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('prayer.setting') }}">Prayer Setting</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('livetv.setting') }}">LiveTV Setting</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('notice.setting') }}">Notice Setting</a>
+                    </li>
+
+
                 </ul>
             </div>
         </li>
+
         <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic6" aria-expanded="false"
                aria-controls="ui-basic">
@@ -202,10 +211,25 @@
             </a>
             <div class="collapse" id="ui-basic7">
                 <ul class="nav flex-column sub-menu">
-                    {{-- <li class="nav-item"><a class="nav-link" href="{{route('social.setting')}}">Social Setting</a></li> --}}
                     <li class="nav-item"><a class="nav-link" href="{{ route('role')}}">List
                             Roles</a>
                     </li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic8" aria-expanded="false"
+               aria-controls="ui-basic">
+                <span class="menu-icon">
+                    <i class="mdi mdi-playlist-play"></i>
+                </span>
+                <span class="menu-title">Websites</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic8">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" href="{{route('website.create')}}">Add Website</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('website.setting') }}">All Webiste</a></li>
                 </ul>
             </div>
         </li>

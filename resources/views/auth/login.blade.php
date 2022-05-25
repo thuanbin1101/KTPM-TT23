@@ -137,7 +137,6 @@
                     userName: userName,
                     userEmail: userEmail
                 }
-
                 window.location = "{{route('dashboard')}}";
             })
             .catch(function (error) {
@@ -150,18 +149,6 @@
             })
         );
         // Truyen data username va email sang dashboard
-
-        setTimeout(function(){
-            axios.post('/dashboard', dataUser)
-                .then(function (response) {
-                    // handle success
-
-                })
-                .catch(function (error) {
-                    // handle error
-
-                });
-        },2000)
 
 
     }
