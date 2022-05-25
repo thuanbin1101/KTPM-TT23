@@ -34,17 +34,19 @@ class PostController extends Controller
 
         return view('backend.post.index', compact('posts'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function create()
     {
         $categories = DB::table('categories')->get();
         $districts = DB::table('districts')->get();
-        return view('backend.post.create', compact('categories', 'districts'));
+        return view('backend.post.create',[
+            'categories' => $categories,
+            'districts' => $districts
+        ]);
     }
 
     /**

@@ -30,9 +30,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($photos as $row)
+                            @foreach ($photos as $key => $row)
                                 <tr>
-                                    <td> {{ $phots->firstItem() + $key }}</td>
+                                    <td> {{ $photos->firstItem() + $key }}</td>
                                     <td> {{ $row->title }}</td>
                                     <td> <img src="{{ asset($row->photo) }}" width="50px" height="50px" alt=""></td>
                                     <td>

@@ -28,7 +28,7 @@ class CategoryController extends Controller
     {
         //
 //        return new CategoryCollection(Category::paginate(3));
-        $categories = Category::all();
+        $categories = Category::paginate(3);
         return response([
             'code' => 200,
             'data' => $categories
