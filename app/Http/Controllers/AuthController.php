@@ -7,6 +7,7 @@ use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Throwable;
 
 class AuthController extends Controller
 {
@@ -40,13 +41,14 @@ class AuthController extends Controller
         return $this->respondWithToken($token);
     }
 
-    public function register(Request $request): \Illuminate\Http\JsonResponse
+    public function register(Request $request)
     {
         try {
             $validator = validator()->make($request->all(), [
                 'name' => 'min:2|string|required',
                 'email' => 'email|required',
-                'password' => 'string|min:1|required',
+                'password' => 'string|min:1|required|confirmed',
+
             ], [
                 'email.required' => 'Bạn chưa nhập email',
                 'name.min' => 'Cần phải ít nhất 2 ký tự',
@@ -57,15 +59,16 @@ class AuthController extends Controller
                 return response()->json(['status' => false, 'errors' => $validator->errors()], 400);
             }
             $user = User::create([
-                'name' => request()->name,
-                'email' => request()->email,
-                'password' => bcrypt(request()->password),
+                'name' => $request->get('name'),
+                'email' => $request->get('email'),
+                'password' => bcrypt($request->get('password'))
             ]);
-        } catch (BindingResolutionException $e) {
+            return response()->json(['message' => 'Registration successful', 'user' => $user],201);
+        } catch (Throwable $e) {
+            if ($e->getCode() === '23000') {
+                return response()->json(['message' => 'Đã có email này trong dữ liệu, vui lòng sử dụng email khác'], 400);
+            }
         }
-
-        return response()->json(['message' => 'Registration successful', 'user' => $user]);
-
     }
 
     /**

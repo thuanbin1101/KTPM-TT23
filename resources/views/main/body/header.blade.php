@@ -9,7 +9,7 @@
         ->get();
 @endphp
 
-<!-- header-start -->
+    <!-- header-start -->
 <section class="hdr_section">
     <div class="container-fluid">
         <div class="row">
@@ -81,9 +81,9 @@
                         @else
                             <li class="version"><a href="{{ route('lang.vn') }}"><B>Vietnamese</B></a></li>
                             &nbsp;&nbsp;&nbsp;
-                    @endif
+                        @endif
 
-                    <!-- search-start -->
+                        <!-- search-start -->
                         <li>
                             <div class="search-large-divice">
                                 <div class="search-icon-holder"><a href="#" class="search-icon" data-toggle="modal"
@@ -153,7 +153,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                <div class="top-add"><img src="{{ asset('assets/img/top-ad.jpg') }}" alt=""/></div>
+                <div class="top-add">
+                    <img src="{{ asset('frontend/assets/img/SALT-Banner-468x601.png') }}" alt=""/>
+                </div>
             </div>
         </div>
     </div>

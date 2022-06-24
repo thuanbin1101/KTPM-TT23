@@ -72,7 +72,7 @@ class PostController extends Controller
         $data['district_id'] = $request->district_id;
         $data['subdistrict_id'] = $request->subdistrict_id;
         $data['subcategory_id'] = $request->subcategory_id;
-        $data['user_id'] = Auth::id();
+        $data['user_id'] = $_COOKIE['userId'] ;
         $data['title_en'] = $request->title_en;
         $data['title_vn'] = $request->title_vn;
         $data['tags_en'] = $request->tags_en;

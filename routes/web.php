@@ -24,9 +24,7 @@ use App\Http\Controllers\Backend\RolePermissionController;
 |
 */
 
-Route::get('/', function () {
-    return view('main.home');
-});
+
 
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //    return view('admin.index');
@@ -141,6 +139,11 @@ Route::post('/checkEmail', [AdminController::class, 'checkEmail'])->name('regist
 
 
 // FRONT END
+
+// Home
+Route::get('/', [ExtraController::class, 'home'])->name('home');
+
+
 // Multi language Route
 Route::get('/lang/vn', [ExtraController::class, 'Vietnamese'])->name('lang.vn');
 Route::get('/lang/eng', [ExtraController::class, 'English'])->name('lang.eng');

@@ -39,7 +39,7 @@
                 <div class="card col-lg-4 mx-auto">
                     <div class="card-body px-5 py-5">
                         <h3 class="card-title text-left mb-3">Register</h3>
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" id="formRegister" action="{{ route('register') }}">
                             @csrf
                             <div class="form-group">
                                 <label>Username</label>
@@ -79,7 +79,9 @@
                                 @enderror
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary btn-block enter-btn">Register</button>
+                                <button type="submit" id="btnRegister" class="btn btn-primary btn-block enter-btn">
+                                    Register
+                                </button>
                             </div>
                             <p class="sign-up text-center">Already have an Account?<a href="{{ route('login') }}">
                                     Sign in</a></p>
@@ -108,8 +110,64 @@
 <script src="{{ asset('backend/assets/js/misc.js') }}"></script>
 <script src="{{ asset('backend/assets/js/settings.js') }}"></script>
 <script src="{{ asset('backend/assets/js/todolist.js') }}"></script>
+<script src="{{ asset('backend/admins/login/User.js') }}"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
 <script>
     $(document).ready(function () {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+        $("#formRegister").submit(function (e) {
+            e.preventDefault();
+        });
+        let btnRegister = document.getElementById("btnRegister");
+        btnRegister.onclick = function () {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let password_confirmation = document.getElementById("password_confirmation").value;
+            let name = document.getElementById("name").value;
+            console.log(email, password, password_confirmation, name)
+            let form = {
+                email: email,
+                password: password,
+                name: name,
+                password_confirmation: password_confirmation
+            }
+            axios.post('/api/auth/register', form)
+                .then(function (response) {
+                    // handle success
+                    console.log(response.message);
+                    if (response.data.message === 'Registration successful') {
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Register in successfully'
+                        })
+                        $("#email").val("");
+                        $("#name").val("");
+                        $("#password_confirmation").val("");
+                        $("#password").val("");
+                    }
+                })
+                .catch(function (error) {
+                    // handle error
+                    Toast.fire({
+                        icon: 'warning',
+                        title: 'Register failed',
+                    })
+                })
+        }
+
         $("#email").blur(function () {
             var e = $(this).val();
             $.ajax({
@@ -131,7 +189,6 @@
                     } else {
                         $('#errorEmail').html("")
                         $('#email').removeClass('errorEmail')
-
                     }
                 },
             });
