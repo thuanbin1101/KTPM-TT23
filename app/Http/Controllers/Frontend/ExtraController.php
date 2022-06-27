@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
@@ -24,6 +25,7 @@ class ExtraController extends Controller
         Session()->put('lang', 'eng');
         return redirect()->back();
     }
+
 
     public function home()
     {
@@ -147,7 +149,7 @@ class ExtraController extends Controller
         $districts = DB::table('districts')->get();
 
         $bigvideo = DB::table('videos')->where('type', '1')->orderBy('id', 'DESC')->first();
-        $smallvideos = DB::table('videos')->where('type', '0')->orderby('id','DESC')->limit(4)->get();
+        $smallvideos = DB::table('videos')->where('type', '0')->orderby('id', 'DESC')->limit(4)->get();
 
         //---------------
 //        $categorySection = DB::table('categories')->limit(4)->orderBy('id', 'DESC')->pluck('id')->toArray();
@@ -232,14 +234,24 @@ class ExtraController extends Controller
 
     public function catePost($id, $category_en)
     {
-        $catePosts = DB::table('posts')->where('category_id', $id)->orderBy('id', 'DESC')->paginate(5);
-        return view('main.allpost', compact('catePosts'));
+        $catePosts = Post::where('category_id', $id)->orderBy('id', 'DESC')
+            ->paginate(5);
+        return view('main.allpost', [
+            'catePosts'=>$catePosts,
+            'category_en' => $category_en
+        ]);
     }
 
     public function subcatePost($id, $subcategory_en)
     {
-        $subcatePosts = DB::table('posts')->where('subcategory_id', $id)->orderBy('id', 'DESC')->paginate(5);
-        return view('main.allpost', compact('subcatePosts'));
+        $subcatePosts = DB::table('posts')
+            ->where('subcategory_id', $id)
+            ->orderBy('id', 'DESC')
+            ->paginate(5);
+        return view('main.allpost', [
+            'subcatePosts' => $subcatePosts,
+            'subcategory_en' => $subcategory_en
+        ]);
     }
 
     public function getSubDistrict($district_id)

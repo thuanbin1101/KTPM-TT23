@@ -4,17 +4,27 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\View;
 
 class CategoryController extends Controller
 {
-//    public function __construct()
-//    {
-//        $this->middleware('permission:add category', ['only' => ['create']]);
-//        $this->middleware('permission:publish category', ['only' => ['index']]);
-//        $this->middleware('permission:edit category', ['only' => ['edit']]);
-//    }
+    public function __construct()
+    {
+        if (isset($_COOKIE['userId'])) {
+            $userId = $_COOKIE['userId'];
+            $user = User::find($userId);
+            $user->getPermissionsViaRoles();
+//            dd($user,$user->can('publish category'));
+//            $this->middleware($user->can('add category'), ['only' => ['create']]);
+//            $this->middleware('permission:publish category',['only' => ['index']]);
+//            $this->middleware('permission:edit category', ['only' => ['edit']]);
+        }
+
+    }
 
     /**
      * Display a listing of the resource.
@@ -23,7 +33,6 @@ class CategoryController extends Controller
      */
     public function index()
     {
-
         $categories = DB::table('categories')->orderBy('id', 'DESC')->whereNull('deleted_at')->paginate(3);
         if ($search = \request()->search) {
             $categories = DB::table('categories')->orderBy('id', 'DESC')->where('category_en', 'LIKE', '%' . $search . '%')->paginate(3);
@@ -129,16 +138,23 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-         DB::table('categories')->where('id', $id)->delete();
-//        Category::find($id)->delete();
-        $notification = array(
-            'message' => 'Category Deleted Successfully',
-            'alert-type' => 'success',
-        );
-        // return redirect()->route('categories')->with($notification);
-        return response()->json([
-            'code' => 200,
-            'message' => "Deleted Success"
-        ], 200);
+        try {
+            DB::table('categories')->where('id', $id)->delete();
+//        $notification = array(
+//            'message' => 'Category Deleted Successfully',
+//            'alert-type' => 'success',
+//        );
+//         return redirect()->route('categories')->with($notification);
+            return response()->json([
+                'code' => 200,
+                'message' => "Deleted Success"
+            ], 200);
+        } catch (\Exception $e) {
+            Log::error('Message: ' . $e->getMessage . '---- Line: ' . $e->GetLine());
+            return response()->json([
+                'code' => 500,
+                'message' => "Deleted Failure"
+            ], 500);
+        }
     }
 }

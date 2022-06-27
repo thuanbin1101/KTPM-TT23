@@ -43,7 +43,7 @@ class RolePermissionController extends Controller
     public function create()
     {
         $permissions = $this->permission->all();
-        return response()->view('backend.roles_permissions.create',['permissions'=>$permissions]);
+        return response()->view('backend.roles_permissions.create', ['permissions' => $permissions]);
     }
 
     /**
@@ -54,21 +54,12 @@ class RolePermissionController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'category_en' => 'required|unique:categories|max:255',
-            'category_vn' => 'required|unique:categories|max:255',
-        ], [
-            'category_en.required' => 'Danh mục tiếng anh chưa điền',
-            'category_vn.required' => 'Danh mục tiếng việt chưa điền',
-            'category_en.unique' => 'Danh mục này đã tồn tại',
-            'category_vn.unique' => 'Danh mục này đã tồn tại',
-        ]);
-        $data = array();
-        $data['category_en'] = $request->category_en;
-        $data['category_vn'] = $request->category_vn;
-        DB::table('categories')->insert($data);
+        $role = new Role();
+        $role->name = $request->get('role_name');
+        $role->syncPermissions($request->get('permission_name'));
+        $role->save();
         $notification = array(
-            'message' => 'Category Inserted Successfully',
+            'message' => 'Thêm vai trò thành công',
             'alert-type' => 'success',
         );
         return redirect()->back()->with($notification);
@@ -89,12 +80,18 @@ class RolePermissionController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $category = DB::table('categories')->where('id', $id)->first();
-        return view('backend.category.edit', compact('category'));
+        $role = Role::find($id);
+        $permissions = Permission::all();
+        $permissionsOfRole = $role->permissions;
+        return view('backend.roles_permissions.edit', [
+            'role' => $role,
+            'permissions' => $permissions,
+            'permissionsOfRole' => $permissionsOfRole
+        ]);
     }
 
     /**
@@ -106,24 +103,15 @@ class RolePermissionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
-            'category_en' => 'required|unique:categories|max:255',
-            'category_vn' => 'required|unique:categories|max:255',
-        ], [
-            'category_en.required' => 'Danh mục tiếng anh chưa điền',
-            'category_vn.required' => 'Danh mục tiếng việt chưa điền',
-            'category_en.unique' => 'Danh mục này đã tồn tại',
-            'category_vn.unique' => 'Danh mục này đã tồn tại',
-        ]);
-        $data = array();
-        $data['category_en'] = $request->category_en;
-        $data['category_vn'] = $request->category_vn;
-        DB::table('categories')->where('id', $id)->update($data);
+        $role = Role::find($id);
+        $role->name = $request->get('name');
+        $role->syncPermissions($request->get('permission_name'));
+        $role->save();
         $notification = array(
-            'message' => 'Category Updated Successfully',
+            'message' => 'Cập nhật vai trò thành công',
             'alert-type' => 'success',
         );
-        return redirect()->route('categories')->with($notification);
+        return redirect()->route('role')->with($notification);
     }
 
     /**
@@ -134,16 +122,11 @@ class RolePermissionController extends Controller
      */
     public function destroy($id)
     {
-        // DB::table('categories')->where('id', $id)->delete();
-        Category::find($id)->delete();
+        Role::find($id)->delete();
         $notification = array(
-            'message' => 'Category Deleted Successfully',
+            'message' => 'Xoá vai trò thành công',
             'alert-type' => 'success',
         );
-        // return redirect()->route('categories')->with($notification);
-        return response()->json([
-            'code' => 200,
-            'message' => "Deleted Success"
-        ], 200);
+        return redirect()->route('role')->with($notification);
     }
 }

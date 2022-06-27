@@ -164,7 +164,7 @@ class GalleryController extends Controller
 
     public function storeVideo(Request $request)
     {
-        DB::table('videos')->insert($request->except(['_token', '_method']));
+        DB::table('videos')->insert($request->except(['_token']));
         $notification = array(
             'message' => 'Video Created Successfully',
             'alert-type' => 'success',

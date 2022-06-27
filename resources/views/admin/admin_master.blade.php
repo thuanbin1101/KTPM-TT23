@@ -125,6 +125,7 @@
             localStorage.removeItem('user_email');
             document.cookie = "userName=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
             document.cookie = "userEmail=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+            document.cookie = "userId=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
             window.location = "{{ route('login') }}";
 
         }
@@ -148,7 +149,7 @@
                     })
                     .catch(function(error) {
                         // handle error
-                        console.log(error.response.data);
+                        console.log(error);
                     });
             }
         }

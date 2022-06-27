@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class UserController extends Controller
 {
@@ -27,15 +29,17 @@ class UserController extends Controller
 
     public function index()
     {
+//        $user->assignRole('Admin');
+//        $user->syncPermissions('delete category');
         // $users = $this->user->paginate(10);
         // return view(
         //     'backend.user.index',
         //     ['users' => $users]
         // );
-//         $role = Role::find(2);
-//         $per = Permission::find(9);
-//         $role->givePermissionTo($per);
-//         dd(1);
+//        Role::create(['name'=>'Tester']);
+        /*     $role = Role::find(1);
+             $per = Permission::find(12);
+             $role->givePermissionTo($per);*/
         // auth()->user()->assignRole(['admin','content']);
 //         auth()->user()->givePermissionTo('add category');
         $users = $this->user->orderBy('id', 'DESC')->paginate(10);
@@ -97,17 +101,14 @@ class UserController extends Controller
         $user = User::find($id);
         $roles = $this->role->all();
         $rolesOfUser = $user->roles;
-        $permissions = Permission::all();
-        $permissionsOfUser = $user->permissions;
 //        $user->givePermissionTo(['edit posts','delete posts']);
+
         return response()->view(
             'backend.user.edit',
             [
                 'roles' => $roles,
                 'user' => $user,
                 'rolesOfUser' => $rolesOfUser,
-                'permissions' => $permissions,
-                'permissionsOfUser' => $permissionsOfUser
             ]
         );
     }
@@ -127,10 +128,17 @@ class UserController extends Controller
         if ($request->password) {
             $user->password = Hash::make($request->password);
         }
-        $user->assignRole($request->role_id);
-        $user->givePermissionTo(['edit posts','delete posts']);
+//        dd($request->get('permission_name'));
+        $user->syncRoles($request->role_id);
+//        $user->givePermissionTo($request->get('permission_name'));
+        $user->syncPermissions($request->get('permission_name'));
+
         $user->save();
-        return redirect()->back()->with('success', 'Tạo tài khoản thành công');
+        $notification = array(
+            'message' => 'Cập nhật tài khoản thành công',
+            'alert-type' => 'success',
+        );
+        return redirect()->back()->with($notification);
     }
 
     /**

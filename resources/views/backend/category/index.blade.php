@@ -1,5 +1,4 @@
 @extends('admin.admin_master')
-
 @section('admin')
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
@@ -7,7 +6,7 @@
                 <h4 class="card-title">Category Page</h4>
                 <div class="template-demo">
                     <a href="{{ route('add.category') }}">
-                        <button  type="button" class="btn btn-primary btn-fw"
+                        <button type="button" class="btn btn-primary btn-fw"
                                 style="float: right;margin-bottom: 15px">
                             Add
                             Category
@@ -43,11 +42,12 @@
                                           style="display: inline">
                                         @method('DELETE')
                                         {{--                                            @if (auth()->user()->can('delete category'))--}}
-{{--                                        <button id="btnDeleteCategory" data-url="{{ route('destroy.category', $category->id) }}"--}}
-{{--                                                class="btn btn-danger btn--delete">--}}
-{{--                                            Delete--}}
-{{--                                        </button>--}}
-                                        <button id="btnDeleteCategory"
+                                        {{--                                        <button id="btnDeleteCategory" data-url="{{ route('destroy.category', $category->id) }}"--}}
+                                        {{--                                                class="btn btn-danger btn--delete">--}}
+                                        {{--                                            Delete--}}
+                                        {{--                                        </button>--}}
+                                        <button data-url="{{ route('destroy.category',$category->id)}}"
+                                                id="btnDeleteCategory"
                                                 class="btn btn-danger btn--delete">
                                             Delete
                                         </button>

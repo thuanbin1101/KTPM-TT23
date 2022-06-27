@@ -17,27 +17,33 @@
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputUsername1">Role Name</label>
-                        <input type="text" class="form-control" name="category_en" id="exampleInputUsername1"
+                        <input type="text" class="form-control" name="role_name" id="exampleInputUsername1"
                                placeholder="Username">
                     </div>
-                    <div class="card text-white bg-success mb-3 col-md-12" style="width: 100%;">
-                        <div class="card-header">
-                            <label for="">
-                                <input type="checkbox">
-                            </label>
-                            Module Permissions
-                        </div>
-                        <div class="row">
-                            @foreach($permissions as $permission)
-                                <div class="card-body col-md-3">
-                                    <h5 class="card-title">
-                                        <label for="">
-                                            <input type="checkbox">
-                                        </label>
-                                        {{$permission->name}}
-                                    </h5>
-                                </div>
-                            @endforeach
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Permissions</label>
+
+                        <div class="card text-white mb-3 col-md-12" style="width: 100%;">
+{{--                            <div class="card-header">--}}
+{{--                                <label for="">--}}
+{{--                                    <input type="checkbox">--}}
+{{--                                </label>--}}
+{{--                                Check All--}}
+{{--                            </div>--}}
+                            <div class="row">
+                                @foreach($permissions as $permission)
+                                    <div class="card-body col-md-3">
+                                        <h5 class="card-title">
+                                            <label for="">
+                                                <input value="{{$permission->name}}" type="checkbox"
+                                                       name="permission_name[]"
+                                                       class="form-check-input"> {{$permission->name}}
+                                            </label>
+                                        </h5>
+                                    </div>
+                                @endforeach
+                            </div>
+
                         </div>
 
                     </div>
@@ -47,6 +53,5 @@
             </div>
         </div>
     </div>
-
 
 @endsection

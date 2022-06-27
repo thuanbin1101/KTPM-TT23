@@ -37,21 +37,6 @@
                             @endforeach
                         </select>
                     </div>
-                    <h4 class="text-center mt-5">Permissions</h4><br>
-                    <div class="row row-cols-5">
-                        @foreach($permissions as $permission)
-                            <div class="form-check col">
-                                <label style="" class="form-check-label">
-                                    <input value="{{$permission->name}}" type="checkbox"
-                                           {{ $permissionsOfUser->contains('id', $permission->id) ? 'checked' : '' }} name="permission_name[]"
-                                           class="form-check-input"> {{$permission->name}}
-                                    <i
-                                        class="input-helper"></i></label>
-                            </div>
-                        @endforeach
-
-
-                    </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                 </form>
             </div>
