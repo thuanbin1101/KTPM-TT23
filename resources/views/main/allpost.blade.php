@@ -9,11 +9,11 @@
                         <span>
                             <a href="{{url('/')}}"><i class="fa fa-home" aria-hidden="true"></i> /
                             </a>
-                            @if (isset($catePosts))
-                                {{$category_en}}
-                            @elseif(isset($subcatePosts))
-                                {{$subcategory_en}}
-                            @endif
+{{--                            @if (isset($catePosts))--}}
+                            {{--                                {{$category_en}}--}}
+                            {{--                            @elseif(isset($subcatePosts))--}}
+                            {{--                                {{$subcategory_en}}--}}
+                            {{--                            @endif--}}
                         </span>
                     </div>
                 </div>
@@ -77,9 +77,10 @@
 
                     <div class="post-pagination">
                         @if(isset($catePosts))
-                            {{ $catePosts->links() }}
+                            {!! $catePosts->appends(request()->all())->links('pagination::bootstrap-4') !!}
+
                         @else
-                            {{$subcatePosts->links()}}
+                            {!! $subcatePosts->appends(request()->all())->links('pagination::bootstrap-4') !!}
                         @endif
                     </div>
                 </div>

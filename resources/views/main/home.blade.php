@@ -19,7 +19,7 @@
                                             <a href="{{ route('single.post', $firstSectionBig->id) }}">{{ $firstSectionBig->title_en }}
                                             </a>
                                         @else
-                                            <a href="{{route('single.post',$sevenCategoryBig->id)}}">{{ $firstSectionBig->title_vn }} </a>
+                                            <a href="{{route('single.post',$firstCategoryBig->id)}}">{{ $firstSectionBig->title_vn }} </a>
                                         @endif
                                     </h4>
                                 </div>

@@ -125,6 +125,7 @@ class ExtraController extends Controller
         $eightCategory = DB::table('categories')
             ->skip(7)
             ->first();
+
         $eightCategoryBig = DB::table('posts')
             ->where('category_id', $eightCategory->id)
             ->where('bigthumbnail', 1)
