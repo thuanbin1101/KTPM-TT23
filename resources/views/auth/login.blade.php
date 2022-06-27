@@ -112,9 +112,7 @@
         }
     })
 
-    const laravelToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     let btnLogin = document.getElementById("btnLogin");
-    var dataUser;
     $("#formLogin").submit(function (e) {
         e.preventDefault();
     });
@@ -136,10 +134,11 @@
                     icon: 'success',
                     title: 'Signed in successfully'
                 })
-                new UserJWT().responseAfterLogin(response)
-                let userName = new UserJWT().name();
-                let userEmail = new UserJWT().email();
-                let userId = new UserJWT().id();
+                let userJWT = new UserJWT();
+                userJWT.responseAfterLogin(response)
+                let userName = userJWT.name();
+                let userEmail = userJWT.email();
+                let userId = userJWT.id();
                 document.cookie = `userName=${userName}; expires=Thu, 01 Jan 2023 00:00:00 UTC;`;
                 document.cookie = `userEmail=${userEmail}; expires=Thu, 01 Jan 2023 00:00:00 UTC;`;
                 document.cookie = `userId=${userId}; expires=Thu, 01 Jan 2023 00:00:00 UTC;`;

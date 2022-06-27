@@ -47,7 +47,8 @@
                                           style="display: inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button data-url="{{ route('destroy.user', $user->id) }}"
+                                        <button onclick="return confirm('Are you sure to delete?')"
+                                                data-url="{{ route('destroy.user', $user->id) }}"
                                                 class="btn btn-danger btn--delete">
                                             Delete
                                         </button>

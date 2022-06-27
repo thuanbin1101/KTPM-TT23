@@ -14,15 +14,6 @@ class CategoryController extends Controller
 {
     public function __construct()
     {
-        if (isset($_COOKIE['userId'])) {
-            $userId = $_COOKIE['userId'];
-            $user = User::find($userId);
-            $user->getPermissionsViaRoles();
-//            dd($user,$user->can('publish category'));
-//            $this->middleware($user->can('add category'), ['only' => ['create']]);
-//            $this->middleware('permission:publish category',['only' => ['index']]);
-//            $this->middleware('permission:edit category', ['only' => ['edit']]);
-        }
 
     }
 

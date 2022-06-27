@@ -27,7 +27,7 @@ class UserController extends Controller
         $this->role = $role;
     }
 
-    public function index()
+    public function index(Request $request)
     {
 //        $user->assignRole('Admin');
 //        $user->syncPermissions('delete category');
@@ -43,6 +43,9 @@ class UserController extends Controller
         // auth()->user()->assignRole(['admin','content']);
 //         auth()->user()->givePermissionTo('add category');
         $users = $this->user->orderBy('id', 'DESC')->paginate(10);
+        if ($search = $request->get('search')) {
+            $users = $this->user->query()->where('name', 'like', '%' . $search . '%')->orderBy('id', 'DESC')->paginate(10);
+        }
         return view(
             'backend.user.index',
             ['users' => $users]
@@ -149,6 +152,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::find($id)->delete();
+        $notification = array(
+            'message' => 'Xoá tài khoản thành công',
+            'alert-type' => 'success',
+        );
+        return redirect()->back()->with($notification);
     }
 }

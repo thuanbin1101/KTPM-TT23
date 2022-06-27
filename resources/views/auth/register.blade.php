@@ -23,11 +23,6 @@
         #errorEmail {
             color: red;
         }
-
-        .errorEmail {
-            border: 2px solid red;
-        }
-
     </style>
 </head>
 
@@ -147,7 +142,6 @@
             axios.post('/api/auth/register', form)
                 .then(function (response) {
                     // handle success
-                    console.log(response.message);
                     if (response.data.message === 'Registration successful') {
                         Toast.fire({
                             icon: 'success',
@@ -160,7 +154,6 @@
                     }
                 })
                 .catch(function (error) {
-                    console.log(error)
                     if (error.response.data.error) {
                         Toast.fire({
                             icon: 'warning',
@@ -177,6 +170,8 @@
                 })
         }
 
+
+        // Check Email Ajax
         $("#email").blur(function () {
             var e = $(this).val();
             $.ajax({
