@@ -16,6 +16,7 @@
     <link href="{{ asset('frontend/assets/style.css') }}" rel="stylesheet">
 
 
+
 </head>
 
 <body>

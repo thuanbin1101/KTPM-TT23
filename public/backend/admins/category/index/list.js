@@ -2,8 +2,6 @@ $(document).ready(function () {
     $(".btn--delete").click(actionDelete);
 });
 
-
-
 function actionDelete(event) {
     event.preventDefault();
     let urlRequest = $(this).data("url");
@@ -31,9 +29,9 @@ function actionDelete(event) {
             //         if (response.code === 200) {
             //             that.parent().parent().parent().remove();
             //             // refresh table
-            //             setTimeout(function(){
-            //                 $( ".table-category" ).load( "http://127.0.0.1:8000/categories .table-category" );
-            //             }, 1000);
+            //             // setTimeout(function(){
+            //             //     $( ".table-category" ).load( "http://127.0.0.1:8000/categories .table-category" );
+            //             // }, 1000);
             //             Swal.fire(
             //                 "Deleted!",
             //                 "Your file has been deleted.",
@@ -47,18 +45,14 @@ function actionDelete(event) {
             axios.delete(`/api/categories/${id}`)
                 .then(function (response) {
                     // handle success
+                    that.parent().parent().parent().remove();
                     Swal.fire(
                         "Deleted!",
                         "Your file has been deleted.",
                         "success"
                     );
-                    setTimeout(function(){
-                        $(".table-category").load("http://127.0.0.1:8000/categories .table-category");
-                    }, 1000);
-
                 })
                 .catch(function (error) {
-                    // handle error
                     console.log(error.response.data);
                 });
         }

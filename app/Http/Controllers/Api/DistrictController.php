@@ -10,7 +10,10 @@ use Illuminate\Http\Request;
 
 class DistrictController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware('JWT', ['except' => ['create', 'edit']]);
+    }
     public function __construct()
     {
         $this->middleware('auth:api');

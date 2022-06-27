@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
@@ -25,14 +26,13 @@ use App\Http\Controllers\Backend\RolePermissionController;
 */
 
 
-
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //    return view('admin.index');
 //})->name('dashboard');
 
-Route::get('/dashboard', function () {
-    return view('admin.index');
-})->name('dashboard');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+//Route::get('/dashboard', [DashboardController::class, 'sidebar'])->name('sidebar');
 
 Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
@@ -131,7 +131,6 @@ Route::put('/update/role/{id}', [RolePermissionController::class, 'update'])->na
 Route::delete('/delete/role/{id}', [RolePermissionController::class, 'destroy'])->name('destroy.role');
 
 
-
 // Json Data for Category and District (AJAX)
 Route::get('/get/subcategory/{category_id}', [PostController::class, 'getSubCateogry']);
 Route::get('/get/subdistrict/{district_id}', [PostController::class, 'getSubDistrict']);
@@ -162,3 +161,5 @@ Route::get('/test', function () {
     return view("test.test");
 });
 Route::post('/test', [AdminController::class, 'testImage'])->name('register.testImage');
+
+

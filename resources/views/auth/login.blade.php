@@ -45,7 +45,7 @@
                                 <label for="password"></label><input type="password" id="password" name="password"
                                                                      class="form-control p_input">
                                 @error('password')
-{{--                                <span class="text-danger">{{ $message }}</span>--}}
+                                {{--                                <span class="text-danger">{{ $message }}</span>--}}
                                 @enderror
                             </div>
                             <div class="form-group d-flex align-items-center justify-content-between">
@@ -146,11 +146,20 @@
                 window.location = "{{ route('dashboard') }}";
             })
             .catch(function (error) {
+                if (error.response.data.error) {
+                    Toast.fire({
+                        icon: 'warning',
+                        title: `${error.response.data.error}`
+                    })
+                }
                 // handle error
-                Toast.fire({
-                    icon: 'warning',
-                    title: 'Invalid Email or Password'
-                })
+                else {
+                    Toast.fire({
+                        icon: 'warning',
+                        title: `${error.response.data.errors.email}`
+                    })
+                }
+
             })
     }
 </script>

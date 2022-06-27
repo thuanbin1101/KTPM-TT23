@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Throwable;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
@@ -29,14 +30,20 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $validateData = $request->validate([
-            'email' => 'required',
+            'email' => 'required|email',
             'password' => 'required',
+        ],[
+            'email.email' => 'Email chưa đúng định dạng, vui lòng kiểm tra lại',
+            'email.required' => 'Bạn chưa nhập email',
+            'password.required' => 'Bạn chưa nhập mật khẩu'
         ]);
+
 
         $credentials = request(['email', 'password']);
         if (!$token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Invalid email or password'], 401);
+            return response()->json(['error' => 'Sai email hoặc mật khẩu'], 401);
         }
+//        $user = JWTAuth::user();
 
         return $this->respondWithToken($token);
     }
@@ -66,7 +73,7 @@ class AuthController extends Controller
             return response()->json(['message' => 'Registration successful', 'user' => $user],201);
         } catch (Throwable $e) {
             if ($e->getCode() === '23000') {
-                return response()->json(['message' => 'Đã có email này trong dữ liệu, vui lòng sử dụng email khác'], 400);
+                return response()->json(['error' => 'Đã có email này trong dữ liệu, vui lòng sử dụng email khác'], 400);
             }
         }
     }
@@ -115,6 +122,7 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
+//            'user'=>$user,
             'user_name' => auth()->user()->name,
             'user_email' => auth()->user()->email,
             'expires_in' => auth()->factory()->getTTL() * 60

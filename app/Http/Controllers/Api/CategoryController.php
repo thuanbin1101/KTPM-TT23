@@ -19,10 +19,10 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-//    public function __construct()
-//    {
-//        $this->middleware('auth:api');
-//    }
+    public function __construct()
+    {
+        $this->middleware('JWT', ['except' => ['index', 'create', 'store', 'edit', 'update']]);
+    }
 
     public function index()
     {

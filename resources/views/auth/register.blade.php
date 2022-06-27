@@ -160,11 +160,20 @@
                     }
                 })
                 .catch(function (error) {
-                    // handle error
-                    Toast.fire({
-                        icon: 'warning',
-                        title: 'Register failed',
-                    })
+                    console.log(error)
+                    if (error.response.data.error) {
+                        Toast.fire({
+                            icon: 'warning',
+                            title: `${error.response.data.error}`
+                        })
+                    }
+                    else {
+                        Toast.fire({
+                            icon: 'warning',
+                            title: `Bạn chưa nhập đủ thông tin hoặc sai thông tin`
+                        })
+                    }
+                    // handle erro
                 })
         }
 
